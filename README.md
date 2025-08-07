@@ -143,7 +143,7 @@ To use these agents with Claude Code, you need to place them in one of the suppo
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/claude-code-agents.git
+git clone https://github.com/rebelopsio/claude-code-agents.git
 cd claude-code-agents
 
 # Copy to project-level location (for current project only)
@@ -159,7 +159,7 @@ cp -r agents ~/.claude/
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/claude-code-agents.git
+git clone https://github.com/rebelopsio/claude-code-agents.git
 
 # Create symbolic link for project-level (for current project only)
 ln -s /path/to/claude-code-agents/agents .claude/agents
