@@ -17,6 +17,8 @@ claude-code-agents/
 │   ├── design-frontend/          # UI/UX and frontend design
 │   ├── distributed-systems/      # Distributed systems and data
 │   ├── devops-monitoring/        # DevOps and observability
+│   ├── product-management/       # Product and project management
+│   ├── quality-assurance/        # Testing and quality assurance
 │   └── data-analysis/           # Data science and analytics
 ├── CLAUDE.md                    # Development guidance
 └── README.md                    # This file
@@ -41,6 +43,7 @@ claude-code-agents/
 | `k8s-architect`           | Design Kubernetes architectures and multi-tenancy               |
 | `k8s-deployment-engineer` | Create Kubernetes manifests and Helm charts                     |
 | `k8s-troubleshooter`      | Debug Kubernetes issues and performance problems                |
+| `solution-architect`      | Design enterprise solutions and system architectures            |
 
 ### Infrastructure as Code
 
@@ -86,14 +89,17 @@ claude-code-agents/
 | Agent                 | Description                                          |
 | --------------------- | ---------------------------------------------------- |
 | `prometheus-engineer` | Configure Prometheus monitoring and alerting         |
+| `prometheus-engineer` | Configure Prometheus monitoring and alerting         |
 | `code-reviewer`       | Expert code review for quality and security          |
 | `debugger`            | Debug errors, test failures, and unexpected behavior |
+| `release-manager`     | Plan releases and coordinate software deployments    |
 
 ### Design & Frontend
 
 | Agent                 | Description                                                     |
 | --------------------- | --------------------------------------------------------------- |
 | `ui-ux-designer`      | Design user interfaces and experiences with accessibility focus |
+| `ux-researcher`       | Conduct user research and validate design decisions             |
 | `tailwind-specialist` | Master Tailwind CSS for rapid UI development                    |
 
 ### Distributed Systems
@@ -105,6 +111,21 @@ claude-code-agents/
 | `data-streaming-engineer`  | Build real-time data streaming pipelines with Kafka/Flink      |
 | `etl-elt-engineer`         | Design ETL/ELT pipelines with modern data stack tools          |
 | `database-sharding-expert` | Implement database sharding for horizontal scaling             |
+
+### Product Management
+
+| Agent              | Description                                                    |
+| ------------------ | -------------------------------------------------------------- |
+| `business-analyst` | Analyze business requirements and create process documentation |
+| `product-owner`    | Define product vision and manage backlog prioritization        |
+| `scrum-master`     | Facilitate Scrum ceremonies and coach agile teams              |
+| `technical-writer` | Create comprehensive technical documentation and user guides   |
+
+### Quality Assurance
+
+| Agent         | Description                                        |
+| ------------- | -------------------------------------------------- |
+| `qa-engineer` | Design test strategies and ensure software quality |
 
 ### Data Analysis
 
@@ -202,6 +223,8 @@ When adding new agents:
 - **Design & Frontend**: Use for UI/UX design and modern CSS frameworks
 - **Distributed Systems**: For building scalable, resilient distributed architectures
 - **DevOps & Monitoring**: Use for operational excellence and code quality
+- **Product Management**: For product strategy, requirements, and agile processes
+- **Quality Assurance**: For testing strategies and quality processes
 - **Data Analysis**: For data science and analytics workflows
 
 Each agent embodies best practices and industry standards for their domain, ensuring consistent, high-quality assistance across all technical areas.

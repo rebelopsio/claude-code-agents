@@ -133,7 +133,7 @@ jobs:
       - name: Validate directory structure
         run: |
           # Check that agents are in correct directories
-          allowed_dirs=("cloud-infrastructure" "infrastructure-as-code" "programming-languages" "design-frontend" "distributed-systems" "devops-monitoring" "data-analysis")
+          allowed_dirs=("cloud-infrastructure" "infrastructure-as-code" "programming-languages" "design-frontend" "distributed-systems" "devops-monitoring" "data-analysis" "product-management" "quality-assurance")
 
           for dir in agents/*/; do
             dirname=$(basename "$dir")
