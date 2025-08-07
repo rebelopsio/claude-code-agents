@@ -1,0 +1,196 @@
+name: Validate Agents
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install pyyaml jsonschema
+
+      - name: Validate agent structure
+        run: |
+          python .github/scripts/validate_agents.py
+
+      - name: Check agent naming conventions
+        run: |
+          # Check that all agent files follow kebab-case naming
+          find agents/ -name "*.md" | while read file; do
+            basename=$(basename "$file" .md)
+            if [[ ! "$basename" =~ ^[a-z0-9]+(-[a-z0-9]+)*$ ]]; then
+              echo "❌ Invalid agent name: $file (must be kebab-case)"
+              exit 1
+            fi
+          done
+          echo "✅ All agent names follow kebab-case convention"
+
+      - name: Validate YAML frontmatter
+        run: |
+          # Check that all agent files have valid YAML frontmatter
+          python -c "
+          import os
+          import yaml
+          import sys
+
+          errors = []
+          required_fields = ['name', 'description']
+          optional_fields = ['tools', 'model']
+
+          for root, dirs, files in os.walk('agents'):
+              for file in files:
+                  if file.endswith('.md'):
+                      path = os.path.join(root, file)
+                      with open(path, 'r') as f:
+                          content = f.read()
+
+                      if not content.startswith('---'):
+                          errors.append(f'{path}: Missing YAML frontmatter')
+                          continue
+
+                      try:
+                          # Extract frontmatter
+                          parts = content.split('---', 2)
+                          if len(parts) < 3:
+                              errors.append(f'{path}: Invalid frontmatter structure')
+                              continue
+
+                          frontmatter = yaml.safe_load(parts[1])
+
+                          # Check required fields
+                          for field in required_fields:
+                              if field not in frontmatter:
+                                  errors.append(f'{path}: Missing required field: {field}')
+
+                          # Validate name matches filename
+                          expected_name = os.path.basename(path)[:-3]  # Remove .md
+                          if frontmatter.get('name') != expected_name:
+                              errors.append(f'{path}: name field must match filename')
+
+                          # Check description length
+                          desc = frontmatter.get('description', '')
+                          if len(desc) < 20:
+                              errors.append(f'{path}: description too short (minimum 20 characters)')
+
+                      except yaml.YAMLError as e:
+                          errors.append(f'{path}: Invalid YAML: {e}')
+
+          if errors:
+              for error in errors:
+                  print(f'❌ {error}')
+              sys.exit(1)
+          else:
+              print('✅ All agents have valid YAML frontmatter')
+          "
+
+      - name: Check for duplicate agent names
+        run: |
+          # Extract all agent names and check for duplicates
+          python -c "
+          import os
+          import yaml
+          from collections import Counter
+
+          names = []
+          for root, dirs, files in os.walk('agents'):
+              for file in files:
+                  if file.endswith('.md'):
+                      path = os.path.join(root, file)
+                      with open(path, 'r') as f:
+                          content = f.read()
+
+                      if content.startswith('---'):
+                          parts = content.split('---', 2)
+                          if len(parts) >= 3:
+                              try:
+                                  frontmatter = yaml.safe_load(parts[1])
+                                  names.append(frontmatter.get('name'))
+                              except:
+                                  pass
+
+          duplicates = [name for name, count in Counter(names).items() if count > 1]
+          if duplicates:
+              print(f'❌ Duplicate agent names found: {duplicates}')
+              exit(1)
+          else:
+              print('✅ No duplicate agent names found')
+          "
+
+      - name: Validate directory structure
+        run: |
+          # Check that agents are in correct directories
+          allowed_dirs=("cloud-infrastructure" "infrastructure-as-code" "programming-languages" "design-frontend" "distributed-systems" "devops-monitoring" "data-analysis")
+
+          for dir in agents/*/; do
+            dirname=$(basename "$dir")
+            if [[ ! " ${allowed_dirs[@]} " =~ " ${dirname} " ]]; then
+              echo "❌ Invalid directory: $dirname"
+              echo "Allowed directories: ${allowed_dirs[*]}"
+              exit 1
+            fi
+          done
+          echo "✅ All agents are in valid directories"
+
+      - name: Check README synchronization
+        run: |
+          # Verify that all agents are documented in README.md
+          python -c "
+          import os
+          import yaml
+          import re
+
+          # Get all agent names from files
+          file_agents = set()
+          for root, dirs, files in os.walk('agents'):
+              for file in files:
+                  if file.endswith('.md'):
+                      path = os.path.join(root, file)
+                      with open(path, 'r') as f:
+                          content = f.read()
+
+                      if content.startswith('---'):
+                          parts = content.split('---', 2)
+                          if len(parts) >= 3:
+                              try:
+                                  frontmatter = yaml.safe_load(parts[1])
+                                  file_agents.add(frontmatter.get('name'))
+                              except:
+                                  pass
+
+          # Get all agent names from README.md
+          with open('README.md', 'r') as f:
+              readme_content = f.read()
+
+          # Extract agent names from markdown tables
+          readme_agents = set()
+          table_pattern = r'\| \`([^`]+)\` \|'
+          matches = re.findall(table_pattern, readme_content)
+          readme_agents.update(matches)
+
+          missing_in_readme = file_agents - readme_agents
+          extra_in_readme = readme_agents - file_agents
+
+          if missing_in_readme:
+              print(f'❌ Agents missing from README.md: {missing_in_readme}')
+              exit(1)
+
+          if extra_in_readme:
+              print(f'❌ Extra agents in README.md (no corresponding file): {extra_in_readme}')
+              exit(1)
+
+          print('✅ README.md is synchronized with agent files')
+          "

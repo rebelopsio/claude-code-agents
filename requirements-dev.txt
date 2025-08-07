@@ -1,0 +1,22 @@
+# Development dependencies for Claude Code Agents
+
+# YAML processing
+pyyaml>=6.0
+
+# JSON schema validation
+jsonschema>=4.0
+
+# Pre-commit hooks
+pre-commit>=3.0
+
+# Code formatting
+black>=23.0
+isort>=5.0
+
+# Linting (if Python scripts grow)
+flake8>=6.0
+pylint>=2.15
+
+# Testing (if tests are added)
+pytest>=7.0
+pytest-cov>=4.0

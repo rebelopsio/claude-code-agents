@@ -1,0 +1,56 @@
+repos:
+  # General file checks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-case-conflict
+      - id: check-added-large-files
+        args: ["--maxkb=100"]
+
+  # YAML formatting
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v3.1.0
+    hooks:
+      - id: prettier
+        files: \.(yaml|yml|json|md)$
+        args: ["--print-width=100", "--prose-wrap=preserve"]
+
+  # Custom agent validation
+  - repo: local
+    hooks:
+      - id: validate-agents
+        name: Validate agent files
+        entry: python .github/scripts/validate_agents.py
+        language: python
+        files: ^agents/.*\.md$
+        pass_filenames: false
+        additional_dependencies: [pyyaml]
+
+      - id: check-agent-naming
+        name: Check agent naming convention
+        entry: bash
+        args:
+          - -c
+          - |
+            for file in "$@"; do
+              basename=$(basename "$file" .md)
+              if [[ ! "$basename" =~ ^[a-z0-9]+(-[a-z0-9]+)*$ ]]; then
+                echo "❌ Invalid agent name: $file (must be kebab-case)"
+                exit 1
+              fi
+            done
+        language: system
+        files: ^agents/.*\.md$
+
+      - id: validate-frontmatter
+        name: Validate YAML frontmatter
+        entry: .github/scripts/validate_frontmatter.py
+        language: python
+        files: ^agents/.*\.md$
+        additional_dependencies: [pyyaml]
