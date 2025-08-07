@@ -161,11 +161,11 @@ cp -r agents ~/.claude/
 # Clone the repository
 git clone https://github.com/rebelopsio/claude-code-agents.git
 
-# Create symbolic link for project-level (for current project only)
-ln -s /path/to/claude-code-agents/agents .claude/agents
+# For project-level (current project only)
+ln -s /path/to/claude-code-agents/agents .claude
 
-# OR create symbolic link for user-level (for all projects)
-ln -s /path/to/claude-code-agents/agents ~/.claude/agents
+# OR for user-level (all projects)
+ln -s /path/to/claude-code-agents/agents ~/.claude
 ```
 
 **Note**: Symbolic links are recommended as they keep agents automatically updated when you pull changes from this repository.
