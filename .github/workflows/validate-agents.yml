@@ -148,36 +148,37 @@ jobs:
       - name: Check README synchronization
         run: |
           # Verify that all agents are documented in README.md
-          python -c "
+          python -c '
           import os
           import yaml
           import re
 
           # Get all agent names from files
           file_agents = set()
-          for root, dirs, files in os.walk('agents'):
+          for root, dirs, files in os.walk("agents"):
               for file in files:
-                  if file.endswith('.md'):
+                  if file.endswith(".md"):
                       path = os.path.join(root, file)
-                      with open(path, 'r') as f:
+                      with open(path, "r") as f:
                           content = f.read()
 
-                      if content.startswith('---'):
-                          parts = content.split('---', 2)
+                      if content.startswith("---"):
+                          parts = content.split("---", 2)
                           if len(parts) >= 3:
                               try:
                                   frontmatter = yaml.safe_load(parts[1])
-                                  file_agents.add(frontmatter.get('name'))
+                                  file_agents.add(frontmatter.get("name"))
                               except:
                                   pass
 
           # Get all agent names from README.md
-          with open('README.md', 'r') as f:
+          with open("README.md", "r") as f:
               readme_content = f.read()
 
           # Extract agent names from markdown tables
           readme_agents = set()
-          table_pattern = r'\| \`([^`]+)\` \|'
+          # Match pattern: | `agent-name` followed by whitespace and |
+          table_pattern = r"\| `([^`]+)`\s+\|"
           matches = re.findall(table_pattern, readme_content)
           readme_agents.update(matches)
 
@@ -185,12 +186,12 @@ jobs:
           extra_in_readme = readme_agents - file_agents
 
           if missing_in_readme:
-              print(f'❌ Agents missing from README.md: {missing_in_readme}')
+              print(f"❌ Agents missing from README.md: {missing_in_readme}")
               exit(1)
 
           if extra_in_readme:
-              print(f'❌ Extra agents in README.md (no corresponding file): {extra_in_readme}')
+              print(f"❌ Extra agents in README.md (no corresponding file): {extra_in_readme}")
               exit(1)
 
-          print('✅ README.md is synchronized with agent files')
-          "
+          print("✅ README.md is synchronized with agent files")
+          '
