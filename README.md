@@ -65,34 +65,42 @@ claude-code-agents/
 
 ### Programming Languages
 
-| Agent                          | Description                                        |
-| ------------------------------ | -------------------------------------------------- |
-| `go-architect`                 | Design Go applications and architectural patterns  |
-| `go-performance-optimizer`     | Optimize Go applications for performance           |
-| `go-test-engineer`             | Write comprehensive Go tests and benchmarks        |
-| `python-automation-engineer`   | Create Python automation scripts and CLI tools     |
-| `python-data-processor`        | Build Python data processing pipelines             |
-| `nextjs-architect`             | Design NextJS applications with App Router         |
-| `nextjs-deployment-specialist` | Configure NextJS deployments and CI/CD             |
-| `react-component-engineer`     | Build reusable React components with TypeScript    |
-| `react-native-developer`       | Build cross-platform mobile apps with React Native |
-| `rust-systems-engineer`        | High-performance Rust systems programming          |
-| `rust-cli-developer`           | Build robust command-line applications in Rust     |
-| `rust-tui-developer`           | Create terminal user interfaces with ratatui       |
-| `rust-web-wasm-engineer`       | Build web applications using Rust and WebAssembly  |
-| `rust-tauri-developer`         | Create desktop applications using Tauri            |
-| `vue-developer`                | Build Vue.js applications with Composition API     |
-| `nuxt-developer`               | Full-stack web applications with Nuxt.js           |
+| Agent                          | Description                                                                 |
+| ------------------------------ | --------------------------------------------------------------------------- |
+| `go-architect`                 | Design Go applications and architectural patterns                           |
+| `go-performance-optimizer`     | Optimize Go applications for performance                                    |
+| `go-test-engineer`             | Write comprehensive Go tests and benchmarks                                 |
+| `python-automation-engineer`   | Create Python automation scripts and CLI tools                              |
+| `python-data-processor`        | Build Python data processing pipelines                                      |
+| `python-test-engineer`         | Write comprehensive Python tests using pytest and testing frameworks        |
+| `nextjs-architect`             | Design NextJS applications with App Router                                  |
+| `nextjs-deployment-specialist` | Configure NextJS deployments and CI/CD                                      |
+| `react-component-engineer`     | Build reusable React components with TypeScript                             |
+| `react-nextjs-test-engineer`   | Write comprehensive tests for React and NextJS applications                 |
+| `react-native-developer`       | Build cross-platform mobile apps with React Native                          |
+| `rust-systems-engineer`        | High-performance Rust systems programming                                   |
+| `rust-cli-developer`           | Build robust command-line applications in Rust                              |
+| `rust-test-engineer`           | Write comprehensive Rust tests using built-in framework and ecosystem tools |
+| `rust-tui-developer`           | Create terminal user interfaces with ratatui                                |
+| `rust-web-wasm-engineer`       | Build web applications using Rust and WebAssembly                           |
+| `rust-tauri-developer`         | Create desktop applications using Tauri                                     |
+| `vue-developer`                | Build Vue.js applications with Composition API                              |
+| `vue-nuxt-test-engineer`       | Write comprehensive tests for Vue.js and Nuxt applications                  |
+| `nuxt-developer`               | Full-stack web applications with Nuxt.js                                    |
 
 ### DevOps & Monitoring
 
-| Agent                 | Description                                          |
-| --------------------- | ---------------------------------------------------- |
-| `prometheus-engineer` | Configure Prometheus monitoring and alerting         |
-| `prometheus-engineer` | Configure Prometheus monitoring and alerting         |
-| `code-reviewer`       | Expert code review for quality and security          |
-| `debugger`            | Debug errors, test failures, and unexpected behavior |
-| `release-manager`     | Plan releases and coordinate software deployments    |
+| Agent                       | Description                                                                   |
+| --------------------------- | ----------------------------------------------------------------------------- |
+| `cicd-specialist`           | Design and implement CI/CD pipelines using GitHub Actions, GitLab CI, Jenkins |
+| `container-specialist`      | Design and implement containerization strategies using Docker and Kubernetes  |
+| `devops-engineer`           | Implement DevOps practices, automation, and cultural transformation           |
+| `security-engineer`         | Implement comprehensive security practices and DevSecOps integration          |
+| `site-reliability-engineer` | Implement SRE practices, incident response, and service level management      |
+| `prometheus-engineer`       | Configure Prometheus monitoring and alerting                                  |
+| `code-reviewer`             | Expert code review for quality and security                                   |
+| `debugger`                  | Debug errors, test failures, and unexpected behavior                          |
+| `release-manager`           | Plan releases and coordinate software deployments                             |
 
 ### Design & Frontend
 

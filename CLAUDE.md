@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-This repository contains specialized agent configuration files for Claude Code, organized into logical categories. Each `.md` file defines a specialized agent with specific expertise, tools, and behavioral patterns for different technical domains.
+This repository contains 70 specialized agent configuration files for Claude Code, organized into logical categories. Each `.md` file defines a specialized agent with specific expertise, tools, and behavioral patterns for different technical domains.
 
 ## Directory Structure
 
@@ -12,8 +12,12 @@ This repository contains specialized agent configuration files for Claude Code, 
 agents/
 ├── cloud-infrastructure/     # AWS, GCP, Kubernetes specialists
 ├── infrastructure-as-code/   # Terraform, Pulumi experts
-├── programming-languages/    # Go, Python, JavaScript/TypeScript specialists
+├── programming-languages/    # Go, Python, JavaScript/TypeScript, Rust specialists
+├── design-frontend/          # UI/UX design and frontend specialists
+├── distributed-systems/      # Microservices, data streaming, messaging
 ├── devops-monitoring/        # DevOps, monitoring, code quality
+├── product-management/       # Product, business analysis, technical writing
+├── quality-assurance/        # Testing and QA specialists
 └── data-analysis/           # Data science and analytics
 ```
 
@@ -37,6 +41,7 @@ model: preferred model (opus, sonnet, etc.)
 - **AWS**: aws-architect, aws-cost-optimizer, aws-security-engineer
 - **GCP**: gcp-infrastructure, gcp-monitoring, gcp-database, gcp-security, gcp-cost-optimization, gcp-migration, gke-specialist
 - **Kubernetes**: k8s-architect, k8s-deployment-engineer, k8s-troubleshooter
+- **General**: solution-architect
 
 ### Infrastructure as Code
 
@@ -46,14 +51,81 @@ model: preferred model (opus, sonnet, etc.)
 ### Programming Languages & Frameworks
 
 - **Go**: go-architect, go-performance-optimizer, go-test-engineer
-- **Python**: python-automation-engineer, python-data-processor
-- **JavaScript/TypeScript**: nextjs-architect, nextjs-deployment-specialist, react-component-engineer
+- **Python**: python-automation-engineer, python-data-processor, python-test-engineer
+- **JavaScript/TypeScript**: nextjs-architect, nextjs-deployment-specialist, react-component-engineer, react-nextjs-test-engineer, react-native-developer, nuxt-developer, vue-developer, vue-nuxt-test-engineer
+- **Rust**: rust-systems-engineer, rust-cli-developer, rust-test-engineer, rust-tui-developer, rust-web-wasm-engineer, rust-tauri-developer
+
+### Design & Frontend
+
+- **UI/UX**: ui-ux-designer, ux-researcher
+- **CSS**: tailwind-specialist
+
+### Distributed Systems
+
+- **Architecture**: microservices-architect
+- **Messaging**: message-queue-engineer, data-streaming-engineer
+- **Data**: etl-elt-engineer, database-sharding-expert
 
 ### DevOps & Monitoring
 
+- **CI/CD**: cicd-specialist
+- **DevOps**: devops-engineer
+- **Containers**: container-specialist
+- **Security**: security-engineer
+- **Reliability**: site-reliability-engineer
 - **Monitoring**: prometheus-engineer
 - **Code Quality**: code-reviewer, debugger
-- **Data**: data-scientist
+- **Operations**: release-manager
+
+### Product Management
+
+- **Analysis**: business-analyst, product-owner
+- **Process**: scrum-master
+- **Documentation**: technical-writer
+
+### Quality Assurance
+
+- **Testing**: qa-engineer
+
+### Data Analysis
+
+- **Analytics**: data-scientist
+
+## Common Development Commands
+
+### Validation and Quality Checks
+
+```bash
+# Install development dependencies
+pip install -r requirements-dev.txt
+
+# Run pre-commit hooks (validates agents, YAML, formatting)
+pre-commit run --all-files
+
+# Validate agent structure and content
+python .github/scripts/validate_agents.py
+
+# Check agent naming conventions
+find agents/ -name "*.md" | while read file; do
+  basename=$(basename "$file" .md)
+  if [[ ! "$basename" =~ ^[a-z0-9]+(-[a-z0-9]+)*$ ]]; then
+    echo "❌ Invalid agent name: $file (must be kebab-case)"
+  fi
+done
+
+# Validate YAML frontmatter in all agents
+python .github/scripts/validate_frontmatter.py
+```
+
+### Agent File Structure Validation
+
+The validation system enforces:
+
+- **Required fields**: `name`, `description`
+- **Optional fields**: `tools`, `model` (must be opus/sonnet/haiku if specified)
+- **Naming**: Agent name must match filename in kebab-case
+- **Content**: Minimum 100 characters, must include "When invoked:" and practices sections
+- **Description**: 20-200 characters
 
 ## Development Tasks
 
@@ -81,6 +153,8 @@ model: preferred model (opus, sonnet, etc.)
 - **Tool Appropriateness**: Agents only request tools necessary for their domain
 - **Best Practices Enforcement**: Each agent embodies industry best practices for their domain
 - **Actionable Instructions**: Agent behaviors are defined with clear, executable steps
+- **Consistent Structure**: All agents follow the same frontmatter format and content patterns
+- **Quality Assurance**: Automated validation ensures agent files meet structural and content requirements
 
 ## Key Patterns
 
