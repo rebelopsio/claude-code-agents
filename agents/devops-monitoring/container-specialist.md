@@ -1,7 +1,7 @@
 ---
 name: container-specialist
 description: Design and implement containerization strategies using Docker, Kubernetes, and container orchestration platforms for scalable application deployment.
-tools: Read, Write, Bash, WebSearch
+tools: Read, Write, Bash, WebSearch, LS, Glob
 model: sonnet
 ---
 

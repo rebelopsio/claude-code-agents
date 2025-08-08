@@ -1,7 +1,7 @@
 ---
 name: go-architect
 description: Design Go applications, packages, interfaces, and architectural patterns. Use for creating new Go services, refactoring existing code, or designing API structures.
-tools: Read, Write, Bash, WebSearch
+tools: Read, Write, Bash, WebSearch, LS, Glob, Grep
 model: sonnet
 ---
 

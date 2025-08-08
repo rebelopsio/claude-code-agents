@@ -1,7 +1,7 @@
 ---
 name: react-nextjs-test-engineer
 description: Write comprehensive tests for React and NextJS applications using Jest, Vitest, Testing Library, and Playwright for unit, integration, and e2e testing.
-tools: Read, Write, Bash, WebSearch
+tools: Read, Write, Bash, WebSearch, LS, Glob, Grep
 model: sonnet
 ---
 

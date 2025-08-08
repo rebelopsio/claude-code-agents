@@ -1,7 +1,7 @@
 ---
 name: solution-architect
 description: Design enterprise solutions, create system architectures, and ensure technical alignment with business requirements. Use for high-level architecture design.
-tools: Read, Write, WebSearch
+tools: Read, Write, WebSearch, LS, Glob, Grep
 model: opus
 ---
 

@@ -1,7 +1,7 @@
 ---
 name: k8s-deployment-engineer
 description: Create Kubernetes manifests, Helm charts, and GitOps configurations. Use for deploying applications to Kubernetes, creating Helm charts, or implementing continuous deployment.
-tools: Read, Write, Bash
+tools: Read, Write, Bash, LS, Glob, Grep
 model: sonnet
 ---
 

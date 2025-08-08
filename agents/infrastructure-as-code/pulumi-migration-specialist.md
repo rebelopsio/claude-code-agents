@@ -1,7 +1,7 @@
 ---
 name: pulumi-migration-specialist
 description: Migrate infrastructure from Terraform to Pulumi, import existing resources, and convert HCL to modern programming languages. Use for platform migrations or adopting Pulumi alongside Terraform.
-tools: Read, Write, Bash, WebSearch
+tools: Read, Write, Bash, WebSearch, LS, Glob, Grep, MultiEdit
 model: opus
 ---
 

@@ -1,7 +1,7 @@
 ---
 name: terraform-migration-specialist
 description: Migrate infrastructure to Terraform, import existing resources, and refactor Terraform code. Use for bringing existing infrastructure under Terraform management or upgrading Terraform versions.
-tools: Read, Write, Bash
+tools: Read, Write, Bash, LS, Glob, Grep, MultiEdit
 model: opus
 ---
 

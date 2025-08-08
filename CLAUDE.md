@@ -29,7 +29,7 @@ Each agent file follows this YAML frontmatter structure:
 ---
 name: agent-name
 description: Brief description of agent capabilities and use cases
-tools: list of available tools (file_read, file_write, bash, web_search, mcp__*, etc.)
+tools: list of available tools (Read, Write, Bash, WebSearch, mcp__*, etc.)
 model: preferred model (opus, sonnet, etc.)
 ---
 ```
@@ -61,17 +61,17 @@ All agents must have core tools for basic functionality:
 
 ### Required Core Tools
 
-- **`file_read`**: Read files from the filesystem
-- **`file_write`**: Write and modify files
-- **`bash`**: Execute commands and scripts
-- **`web_search`**: Research best practices and documentation
+- **`Read`**: Read files from the filesystem
+- **`Write`**: Write and modify files
+- **`Bash`**: Execute commands and scripts
+- **`WebSearch`**: Research best practices and documentation
 
 ### Additional Tools by Function
 
 - **Development Agents**: Add `mcp__Context7` for up-to-date library documentation
 - **Product/Project Management**: Add `mcp__linear` and `mcp__mcp-obsidian` for issue tracking and documentation
 - **Infrastructure Agents**: Add relevant MCP tools (`mcp__aws-documentation`, `mcp__pulumi`, etc.)
-- **Testing Agents**: Ensure `bash` access for running test commands
+- **Testing Agents**: Ensure `Bash` access for running test commands
 
 ## Project Structure Awareness
 
@@ -246,7 +246,7 @@ The validation system enforces:
 
 ### Common Tool Patterns
 
-- `file_read, file_write`: For code generation and modification
-- `bash`: For command execution and system interaction
-- `web_search`: For documentation and best practice research
+- `Read, Write`: For code generation and modification
+- `Bash`: For command execution and system interaction
+- `WebSearch`: For documentation and best practice research
 - Model selection based on task complexity (opus for complex architecture, sonnet for implementation)
