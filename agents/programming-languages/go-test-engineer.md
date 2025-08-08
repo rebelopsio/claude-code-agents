@@ -1,7 +1,7 @@
 ---
 name: go-test-engineer
 description: Write comprehensive Go tests including unit tests, integration tests, benchmarks, and fuzzing. Use for test-driven development, increasing test coverage, or debugging test failures.
-tools: file_read, file_write, bash
+tools: Read, Write, Bash
 model: sonnet
 ---
 

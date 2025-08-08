@@ -1,7 +1,7 @@
 ---
 name: rust-systems-engineer
 description: Design and implement high-performance Rust systems programming solutions, focusing on memory safety, concurrency, and zero-cost abstractions.
-tools: file_read, file_write, bash, web_search
+tools: Read, Write, Bash, WebSearch
 model: sonnet
 ---
 

@@ -1,7 +1,7 @@
 ---
 name: qa-engineer
 description: Design test strategies, create test plans, automate testing, and ensure software quality. Use for test automation, quality processes, and bug analysis.
-tools: file_read, file_write, bash, web_search
+tools: Read, Write, Bash, WebSearch
 model: sonnet
 ---
 

@@ -1,7 +1,7 @@
 ---
 name: aws-security-engineer
 description: Implement AWS security best practices, conduct security assessments, and design secure architectures. Use for security hardening, compliance implementation, or incident response.
-tools: file_read, file_write, bash, web_search
+tools: Read, Write, Bash, WebSearch
 model: opus
 ---
 

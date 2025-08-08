@@ -1,7 +1,7 @@
 ---
 name: pulumi-multi-cloud-architect
 description: Design multi-cloud and hybrid cloud architectures using Pulumi. Use for implementing cloud-agnostic patterns, disaster recovery across clouds, or gradual cloud migrations.
-tools: file_read, file_write, bash, web_search
+tools: Read, Write, Bash, WebSearch
 model: opus
 ---
 

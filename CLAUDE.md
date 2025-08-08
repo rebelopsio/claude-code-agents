@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-This repository contains 70 specialized agent configuration files for Claude Code, organized into logical categories. Each `.md` file defines a specialized agent with specific expertise, tools, and behavioral patterns for different technical domains.
+This repository contains 73 specialized agent configuration files for Claude Code, organized into logical categories. Each `.md` file defines a specialized agent with specific expertise, tools, and behavioral patterns for different technical domains.
 
 ## Directory Structure
 
@@ -29,10 +29,86 @@ Each agent file follows this YAML frontmatter structure:
 ---
 name: agent-name
 description: Brief description of agent capabilities and use cases
-tools: list of available tools (file_read, file_write, bash, web_search, etc.)
+tools: list of available tools (file_read, file_write, bash, web_search, mcp__*, etc.)
 model: preferred model (opus, sonnet, etc.)
 ---
 ```
+
+## MCP Tool Integration
+
+Many agents include MCP (Model Context Protocol) tools for enhanced functionality:
+
+### Available MCP Tools
+
+- **`mcp__linear`**: Linear integration for issue tracking, project management, user stories
+- **`mcp__mcp-obsidian`**: Obsidian integration for knowledge management and documentation
+- **`mcp__Context7`**: Up-to-date library documentation and code examples
+- **`mcp__aws-documentation`**: AWS service documentation and best practices
+- **`mcp__aws-terraform`**: Terraform AWS provider resources and modules
+- **`mcp__pulumi`**: Pulumi registry resources and deployment capabilities
+- **`mcp__cloud-run`**: GCP Cloud Run deployment and management
+
+### MCP Tool Usage by Category
+
+- **Product Management**: Linear for user stories, Obsidian for requirements documentation
+- **Development**: Context7 for library docs, Obsidian for technical notes
+- **DevOps/SRE**: Linear for incident tracking, AWS/Pulumi tools for infrastructure
+- **Cloud Infrastructure**: AWS Documentation, Terraform, Pulumi for cloud resources
+
+## Essential Tool Requirements
+
+All agents must have core tools for basic functionality:
+
+### Required Core Tools
+
+- **`file_read`**: Read files from the filesystem
+- **`file_write`**: Write and modify files
+- **`bash`**: Execute commands and scripts
+- **`web_search`**: Research best practices and documentation
+
+### Additional Tools by Function
+
+- **Development Agents**: Add `mcp__Context7` for up-to-date library documentation
+- **Product/Project Management**: Add `mcp__linear` and `mcp__mcp-obsidian` for issue tracking and documentation
+- **Infrastructure Agents**: Add relevant MCP tools (`mcp__aws-documentation`, `mcp__pulumi`, etc.)
+- **Testing Agents**: Ensure `bash` access for running test commands
+
+## Project Structure Awareness
+
+Agents must be aware that modern projects often organize code in subdirectories rather than at the root level.
+
+### Common Directory Patterns
+
+**Frontend Applications:**
+
+- `frontend/`, `client/`, `web/`, `ui/`, `app/`
+- `packages/frontend/`, `apps/web/`, `apps/client/`
+
+**Backend Services:**
+
+- `backend/`, `server/`, `api/`, `services/`
+- `packages/api/`, `apps/api/`, `apps/server/`
+
+**Monorepo Structures:**
+
+- `apps/` - Individual applications (web, mobile, desktop)
+- `packages/` - Shared libraries and components
+- `libs/` - Internal utility libraries
+- `services/` - Microservices or backend services
+
+**Full-Stack Projects:**
+
+- Root level: `frontend/` and `backend/` directories
+- Nx workspaces: `apps/` and `libs/`
+- Turborepo: `apps/` and `packages/`
+
+### Agent Behavior Requirements
+
+1. **Always explore project structure first** before assuming code location
+2. **Look for framework indicators**: `package.json`, `next.config.js`, `Dockerfile`, etc.
+3. **Check common subdirectories** before working in root level
+4. **Adapt tooling and configurations** based on discovered structure
+5. **Document assumptions** about project layout when creating files
 
 ## Available Agent Categories
 
@@ -65,6 +141,7 @@ model: preferred model (opus, sonnet, etc.)
 - **Architecture**: microservices-architect
 - **Messaging**: message-queue-engineer, data-streaming-engineer
 - **Data**: etl-elt-engineer, database-sharding-expert
+- **Databases**: sql-architect, postgres-developer
 
 ### DevOps & Monitoring
 
@@ -82,6 +159,7 @@ model: preferred model (opus, sonnet, etc.)
 - **Analysis**: business-analyst, product-owner
 - **Process**: scrum-master
 - **Documentation**: technical-writer
+- **Marketing**: marketing-seo-specialist
 
 ### Quality Assurance
 

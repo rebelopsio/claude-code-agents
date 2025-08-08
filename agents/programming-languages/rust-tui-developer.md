@@ -1,7 +1,7 @@
 ---
 name: rust-tui-developer
 description: Create terminal user interfaces in Rust with rich interactivity, real-time updates, and responsive layouts using ratatui and crossterm.
-tools: file_read, file_write, bash, web_search
+tools: Read, Write, Bash, WebSearch
 model: sonnet
 ---
 

@@ -1,7 +1,7 @@
 ---
 name: pulumi-cost-analyzer
 description: Analyze and optimize infrastructure costs in Pulumi programs. Use for cost estimation, budget tracking, or implementing cost-aware infrastructure patterns.
-tools: file_read, file_write, bash, web_search
+tools: Read, Write, Bash, WebSearch
 model: sonnet
 ---
 

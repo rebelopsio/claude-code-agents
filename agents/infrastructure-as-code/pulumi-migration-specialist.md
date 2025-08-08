@@ -1,7 +1,7 @@
 ---
 name: pulumi-migration-specialist
 description: Migrate infrastructure from Terraform to Pulumi, import existing resources, and convert HCL to modern programming languages. Use for platform migrations or adopting Pulumi alongside Terraform.
-tools: file_read, file_write, bash, web_search
+tools: Read, Write, Bash, WebSearch
 model: opus
 ---
 
@@ -20,7 +20,7 @@ Migration strategies:
 
 Terraform to Pulumi conversion:
 
-```bash
+```Bash
 # Use pulumi convert for automated conversion
 pulumi convert --from terraform --language typescript
 

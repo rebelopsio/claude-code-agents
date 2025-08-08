@@ -1,7 +1,7 @@
 ---
 name: python-automation-engineer
 description: Create Python automation scripts, CLI tools, and task automation solutions. Use for building deployment scripts, data processing pipelines, or system administration tools.
-tools: file_read, file_write, bash, web_search
+tools: Read, Write, Bash, WebSearch
 model: sonnet
 ---
 

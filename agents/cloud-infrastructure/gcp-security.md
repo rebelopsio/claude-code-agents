@@ -1,7 +1,7 @@
 ---
 name: gcp-security
 description: Expert in GCP security best practices, IAM management, compliance frameworks, and security monitoring for comprehensive enterprise security implementation.
-tools: gcloud, terraform, security-command-center
+tools: Read, Write, Bash, WebSearch, mcp__pulumi
 ---
 
 # GCP Security & Compliance Expert

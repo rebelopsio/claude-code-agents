@@ -1,7 +1,7 @@
 ---
 name: react-native-developer
 description: Build cross-platform mobile applications with React Native, focusing on native performance, platform-specific features, and modern development practices.
-tools: file_read, file_write, bash, web_search
+tools: Read, Write, Bash, WebSearch
 model: sonnet
 ---
 

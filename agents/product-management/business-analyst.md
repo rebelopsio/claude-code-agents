@@ -1,7 +1,7 @@
 ---
 name: business-analyst
 description: Analyze business requirements, create process flows, document specifications, and bridge business-technical communication. Use for requirements analysis.
-tools: file_read, file_write, web_search
+tools: Read, Write, WebSearch, mcp__linear, mcp__mcp-obsidian
 model: sonnet
 ---
 

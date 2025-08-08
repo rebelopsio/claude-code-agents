@@ -1,7 +1,7 @@
 ---
 name: tailwind-specialist
 description: Master Tailwind CSS for rapid UI development, focusing on utility-first design, component composition, and performance optimization.
-tools: file_read, file_write, bash, web_search
+tools: Read, Write, Bash, WebSearch
 model: sonnet
 ---
 

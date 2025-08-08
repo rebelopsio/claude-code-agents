@@ -1,7 +1,7 @@
 ---
 name: pulumi-testing-specialist
 description: Implement comprehensive testing strategies for Pulumi programs including unit tests, integration tests, and policy testing. Use for TDD with infrastructure or ensuring code quality.
-tools: file_read, file_write, bash
+tools: Read, Write, Bash
 model: sonnet
 ---
 

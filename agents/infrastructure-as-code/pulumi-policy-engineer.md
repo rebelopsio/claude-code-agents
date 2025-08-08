@@ -1,7 +1,7 @@
 ---
 name: pulumi-policy-engineer
 description: Create Pulumi CrossGuard policies for compliance, security, and governance. Use for implementing organizational standards, security controls, or cost management policies.
-tools: file_read, file_write, bash, web_search
+tools: Read, Write, Bash, WebSearch
 model: sonnet
 ---
 

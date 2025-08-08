@@ -1,7 +1,7 @@
 ---
 name: pulumi-security-compliance-engineer
 description: Implement security controls, compliance frameworks, and governance policies in Pulumi programs. Use for SOC2, HIPAA, PCI-DSS compliance or implementing zero-trust architectures.
-tools: file_read, file_write, bash, web_search
+tools: Read, Write, Bash, WebSearch
 model: opus
 ---
 

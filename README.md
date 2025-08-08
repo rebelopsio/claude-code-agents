@@ -112,22 +112,25 @@ claude-code-agents/
 
 ### Distributed Systems
 
-| Agent                      | Description                                                    |
-| -------------------------- | -------------------------------------------------------------- |
-| `microservices-architect`  | Design microservices architectures and service decoupling      |
-| `message-queue-engineer`   | Implement message queue systems and event-driven architectures |
-| `data-streaming-engineer`  | Build real-time data streaming pipelines with Kafka/Flink      |
-| `etl-elt-engineer`         | Design ETL/ELT pipelines with modern data stack tools          |
-| `database-sharding-expert` | Implement database sharding for horizontal scaling             |
+| Agent                      | Description                                                                              |
+| -------------------------- | ---------------------------------------------------------------------------------------- |
+| `microservices-architect`  | Design microservices architectures and service decoupling                                |
+| `message-queue-engineer`   | Implement message queue systems and event-driven architectures                           |
+| `data-streaming-engineer`  | Build real-time data streaming pipelines with Kafka/Flink                                |
+| `etl-elt-engineer`         | Design ETL/ELT pipelines with modern data stack tools                                    |
+| `database-sharding-expert` | Implement database sharding for horizontal scaling                                       |
+| `sql-architect`            | Design database schemas, optimize SQL queries, and architect scalable database solutions |
+| `postgres-developer`       | Develop PostgreSQL applications using advanced features and performance optimization     |
 
 ### Product Management
 
-| Agent              | Description                                                    |
-| ------------------ | -------------------------------------------------------------- |
-| `business-analyst` | Analyze business requirements and create process documentation |
-| `product-owner`    | Define product vision and manage backlog prioritization        |
-| `scrum-master`     | Facilitate Scrum ceremonies and coach agile teams              |
-| `technical-writer` | Create comprehensive technical documentation and user guides   |
+| Agent                      | Description                                                                     |
+| -------------------------- | ------------------------------------------------------------------------------- |
+| `business-analyst`         | Analyze business requirements and create process documentation                  |
+| `product-owner`            | Define product vision and manage backlog prioritization                         |
+| `scrum-master`             | Facilitate Scrum ceremonies and coach agile teams                               |
+| `technical-writer`         | Create comprehensive technical documentation and user guides                    |
+| `marketing-seo-specialist` | Optimize websites for search engines and implement digital marketing strategies |
 
 ### Quality Assurance
 

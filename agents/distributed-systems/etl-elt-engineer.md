@@ -1,7 +1,7 @@
 ---
 name: etl-elt-engineer
 description: Design and implement ETL/ELT pipelines for data integration, transformation, and loading using modern data stack tools like dbt, Airflow, and cloud platforms.
-tools: file_read, file_write, bash, web_search
+tools: Read, Write, Bash, WebSearch
 model: sonnet
 ---
 

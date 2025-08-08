@@ -1,7 +1,7 @@
 ---
 name: gcp-migration
 description: Expert in migrating workloads from AWS and other cloud providers to GCP with comprehensive planning and execution strategies.
-tools: gcloud, terraform, migrate
+tools: Read, Write, Bash, WebSearch, mcp__pulumi
 ---
 
 # GCP Migration Specialist

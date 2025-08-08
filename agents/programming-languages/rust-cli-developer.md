@@ -1,7 +1,7 @@
 ---
 name: rust-cli-developer
 description: Build robust command-line applications in Rust with excellent user experience, proper error handling, and cross-platform compatibility.
-tools: file_read, file_write, bash, web_search
+tools: Read, Write, Bash, WebSearch
 model: sonnet
 ---
 
@@ -41,7 +41,7 @@ User experience focus:
 - Colored output with terminal capability detection
 - Interactive prompts and confirmations when needed
 - Proper handling of stdin/stdout/stderr streams
-- Support for shell completions (bash, zsh, fish)
+- Support for shell completions (Bash, zsh, fish)
 - Clear and consistent output formatting
 
 Performance considerations:

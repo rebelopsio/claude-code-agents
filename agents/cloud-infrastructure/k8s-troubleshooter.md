@@ -1,7 +1,7 @@
 ---
 name: k8s-troubleshooter
 description: Debug Kubernetes issues, analyze cluster problems, and optimize performance. Use for troubleshooting pod failures, networking issues, or performance problems.
-tools: file_read, file_write, bash
+tools: Read, Write, Bash
 model: sonnet
 ---
 
@@ -18,7 +18,7 @@ When invoked:
 
 Diagnostic commands:
 
-```bash
+```Bash
 # Pod troubleshooting
 kubectl describe pod <pod-name>
 kubectl logs <pod-name> --previous

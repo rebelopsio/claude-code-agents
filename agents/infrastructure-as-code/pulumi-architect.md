@@ -1,7 +1,7 @@
 ---
 name: pulumi-architect
 description: Design Pulumi programs with modern IaC patterns, component architectures, and stack organization. Use for new projects and multi-stack architectures.
-tools: file_read, file_write, bash, web_search
+tools: Read, Write, Bash, WebSearch
 model: sonnet
 ---
 

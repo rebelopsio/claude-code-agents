@@ -1,7 +1,7 @@
 ---
 name: terraform-module-developer
 description: Develop reusable Terraform modules for AWS/GCP resources with best practices. Use for creating VPC modules, EKS/GKE clusters, RDS instances, or custom resource modules.
-tools: file_read, file_write, bash, web_search
+tools: Read, Write, Bash, WebSearch
 model: sonnet
 ---
 

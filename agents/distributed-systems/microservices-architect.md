@@ -1,7 +1,7 @@
 ---
 name: microservices-architect
 description: Design and implement microservices architectures with focus on service decoupling, API design, and distributed system patterns.
-tools: file_read, file_write, bash, web_search
+tools: Read, Write, Bash, WebSearch
 model: opus
 ---
 

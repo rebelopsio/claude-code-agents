@@ -1,7 +1,7 @@
 ---
 name: data-streaming-engineer
 description: Design and implement real-time data streaming pipelines using Apache Kafka, Apache Flink, and stream processing frameworks for high-velocity data processing.
-tools: file_read, file_write, bash, web_search
+tools: Read, Write, Bash, WebSearch
 model: sonnet
 ---
 

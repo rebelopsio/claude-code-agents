@@ -1,7 +1,7 @@
 ---
 name: product-owner
 description: Define product vision, manage backlog, write user stories, and prioritize features. Use for product strategy, requirements gathering, and stakeholder alignment.
-tools: file_read, file_write, web_search
+tools: Read, Write, WebSearch, mcp__linear, mcp__mcp-obsidian
 model: sonnet
 ---
 
@@ -33,6 +33,8 @@ Product management activities:
 - Estimate story complexity and effort
 - Maintain backlog hygiene and organization
 - Plan sprint goals and deliverables
+- Use Linear for issue creation, tracking, and project management
+- Document requirements and decisions in Obsidian
 
 **Stakeholder Engagement:**
 

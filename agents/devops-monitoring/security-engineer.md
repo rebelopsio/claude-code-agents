@@ -1,7 +1,7 @@
 ---
 name: security-engineer
 description: Implement comprehensive security practices, vulnerability management, and DevSecOps integration across applications and infrastructure.
-tools: file_read, file_write, bash, web_search
+tools: Read, Write, Bash, WebSearch
 model: sonnet
 ---
 

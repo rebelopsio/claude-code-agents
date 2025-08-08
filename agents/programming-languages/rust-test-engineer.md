@@ -1,7 +1,7 @@
 ---
 name: rust-test-engineer
 description: Write comprehensive Rust tests using built-in test framework, criterion for benchmarks, proptest for property testing, and integration testing strategies.
-tools: file_read, file_write, bash, web_search
+tools: Read, Write, Bash, WebSearch
 model: sonnet
 ---
 

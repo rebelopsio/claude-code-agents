@@ -1,7 +1,7 @@
 ---
 name: nuxt-developer
 description: Build full-stack web applications with Nuxt.js, focusing on SSR, SSG, performance optimization, and modern development patterns.
-tools: file_read, file_write, bash, web_search
+tools: Read, Write, Bash, WebSearch
 model: sonnet
 ---
 

@@ -1,7 +1,7 @@
 ---
 name: ui-ux-designer
 description: Design user interfaces and experiences with focus on usability, accessibility, and conversion optimization. Create design systems and user-centered solutions.
-tools: file_read, file_write, web_search
+tools: Read, Write, WebSearch
 model: opus
 ---
 

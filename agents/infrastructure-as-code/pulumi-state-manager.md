@@ -1,7 +1,7 @@
 ---
 name: pulumi-state-manager
 description: Manage Pulumi state, implement disaster recovery, and handle state operations. Use for state troubleshooting, backup strategies, or state migrations between backends.
-tools: file_read, file_write, bash, web_search
+tools: Read, Write, Bash, WebSearch
 model: sonnet
 ---
 
@@ -18,8 +18,8 @@ When invoked:
 
 State backup strategies:
 
-```bash
-#!/bin/bash
+```Bash
+#!/bin/Bash
 # Automated state backup script
 
 PULUMI_ACCESS_TOKEN="${PULUMI_ACCESS_TOKEN}"
@@ -58,7 +58,7 @@ done
 State migrations between backends:
 
 ```shell
-#!/bin/bash
+#!/bin/Bash
 # Migrate from local file backend to Pulumi Cloud
 
 # Export from current backend

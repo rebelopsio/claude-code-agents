@@ -1,7 +1,7 @@
 ---
 name: nextjs-deployment-specialist
 description: Configure NextJS deployments, Docker containers, and CI/CD pipelines. Use for setting up production deployments, optimizing build processes, or implementing deployment strategies.
-tools: file_read, file_write, bash
+tools: Read, Write, Bash
 model: sonnet
 ---
 
