@@ -87,6 +87,63 @@ This directory contains hooks that enhance the Claude Code agent system by provi
 - Automatically suggests next steps in the workflow
 - Resets context after complete chains to prevent overflow
 
+### 7. Web Resource Validator (`web-resource-validator.sh`)
+
+**Type:** PostToolUse  
+**Purpose:** Validates web application changes for broken references
+
+- Validates JavaScript/TypeScript imports
+- Checks Next.js API routes and page routes
+- Validates image paths in public directory
+- Checks for missing environment variables
+- Validates CSS/SCSS imports
+- Detects broken Link hrefs
+
+**Features:**
+
+- Automatic validation after file modifications
+- Next.js-specific validations (App Router and Pages Router)
+- Environment variable checking
+- Comprehensive import resolution
+
+### 8. TypeScript Validator (`typescript-validator.sh`)
+
+**Type:** PostToolUse  
+**Purpose:** Ensures TypeScript type safety and best practices
+
+- Runs TypeScript compiler checks on modified files
+- Detects type errors and suggests fixes
+- Warns about `any` type usage
+- Checks for missing return types
+- Validates React/Next.js TypeScript patterns
+- Suggests type improvements
+
+**Features:**
+
+- Single-file type checking
+- Common error pattern detection
+- Type safety recommendations
+- React-specific TypeScript validations
+
+### 9. Test Runner Validator (`test-runner-validator.sh`)
+
+**Type:** PostToolUse  
+**Purpose:** Manages test execution after code changes
+
+- Detects test framework (Jest, Vitest, Mocha, Go, Rust, Python)
+- Finds related test files for modified code
+- Suggests test commands
+- Tracks test runs
+- Checks test coverage
+- Suggests creating missing tests
+
+**Features:**
+
+- Multi-language test framework detection
+- Automatic test file discovery
+- Coverage reporting integration
+- Test creation suggestions
+
 ## Installation
 
 1. Make hooks executable:
@@ -103,6 +160,9 @@ claude-code config set hooks.preTool ./hooks/agent-selector.sh
 claude-code config set hooks.preTool ./hooks/dangerous-operation-validator.sh
 claude-code config set hooks.postTool ./hooks/agent-hierarchy-tracker.sh
 claude-code config set hooks.postTool ./hooks/auto-debug-suggester.sh
+claude-code config set hooks.postTool ./hooks/web-resource-validator.sh
+claude-code config set hooks.postTool ./hooks/typescript-validator.sh
+claude-code config set hooks.postTool ./hooks/test-runner-validator.sh
 claude-code config set hooks.sessionStart ./hooks/session-agent-context.sh
 claude-code config set hooks.subagentStop ./hooks/agent-context-bridge.sh
 ```
@@ -113,7 +173,13 @@ Or add to your settings JSON:
 {
   "hooks": {
     "preToolUse": ["./hooks/agent-selector.sh", "./hooks/dangerous-operation-validator.sh"],
-    "postToolUse": ["./hooks/agent-hierarchy-tracker.sh", "./hooks/auto-debug-suggester.sh"],
+    "postToolUse": [
+      "./hooks/agent-hierarchy-tracker.sh",
+      "./hooks/auto-debug-suggester.sh",
+      "./hooks/web-resource-validator.sh",
+      "./hooks/typescript-validator.sh",
+      "./hooks/test-runner-validator.sh"
+    ],
     "sessionStart": "./hooks/session-agent-context.sh",
     "subagentStop": "./hooks/agent-context-bridge.sh"
   }
@@ -142,6 +208,8 @@ Hooks collect usage data in `~/.claude-code/`:
 - `error-patterns.log`: Recurring error tracking
 - `agent-context.json`: Current agent chain context
 - `agent-chain.log`: Agent delegation chains
+- `validation.log`: File validation history
+- `test-runs.log`: Test execution tracking
 
 ### Customization
 
@@ -182,6 +250,32 @@ Hook: "🔍 Go error detected! Consider using: Task tool with go-debugger"
 ```
 Tool: Bash "rm -rf /"
 Hook: "❌ BLOCKED: Attempting to delete system root directory"
+```
+
+### Example 4: Web Resource Validation
+
+```
+Tool: Edit Next.js component with import './styles.css'
+Hook: "⚠️ Style file not found: ./styles.css"
+Hook: "   Referenced in: components/Header.tsx"
+```
+
+### Example 5: TypeScript Validation
+
+```
+Tool: Edit TypeScript file with type error
+Hook: "❌ TypeScript errors found:"
+Hook: "   Property 'name' does not exist on type 'User'"
+Hook: "💡 Fix suggestions: Add type definitions for the missing property"
+```
+
+### Example 6: Test Discovery
+
+```
+Tool: Edit src/utils/parser.ts
+Hook: "📝 Found related test files:"
+Hook: "   • src/__tests__/parser.test.ts"
+Hook: "💡 Run tests with: npm test -- src/__tests__/parser.test.ts"
 ```
 
 ## Troubleshooting
