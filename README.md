@@ -68,6 +68,7 @@ claude-code-agents/
 | Agent                          | Description                                                                 |
 | ------------------------------ | --------------------------------------------------------------------------- |
 | `go-architect`                 | Design Go applications and architectural patterns                           |
+| `go-engineer`                  | Implement Go applications following architectural designs                   |
 | `go-performance-optimizer`     | Optimize Go applications for performance                                    |
 | `go-test-engineer`             | Write comprehensive Go tests and benchmarks                                 |
 | `python-automation-engineer`   | Create Python automation scripts and CLI tools                              |
@@ -87,6 +88,8 @@ claude-code-agents/
 | `vue-developer`                | Build Vue.js applications with Composition API                              |
 | `vue-nuxt-test-engineer`       | Write comprehensive tests for Vue.js and Nuxt applications                  |
 | `nuxt-developer`               | Full-stack web applications with Nuxt.js                                    |
+| `fullstack-nextjs-go`          | Build full-stack applications with Next.js frontend and Go backend          |
+| `fullstack-nuxtjs-go`          | Build full-stack applications with Nuxt.js frontend and Go backend          |
 
 ### DevOps & Monitoring
 

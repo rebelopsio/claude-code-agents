@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-This repository contains 73 specialized agent configuration files for Claude Code, organized into logical categories. Each `.md` file defines a specialized agent with specific expertise, tools, and behavioral patterns for different technical domains.
+This repository contains 76 specialized agent configuration files for Claude Code, organized into logical categories. Each `.md` file defines a specialized agent with specific expertise, tools, and behavioral patterns for different technical domains.
 
 ## Directory Structure
 
@@ -244,9 +244,69 @@ The validation system enforces:
 4. Validate and optimize results
 5. Document decisions and rationale
 
+### Agent Hierarchy and Delegation
+
+Agents are organized in a hierarchical structure that mirrors real-world development teams:
+
+#### Level 1: Architects (1-to-many delegation)
+
+**Role**: High-level design and orchestration
+
+- `solution-architect`: Top-level orchestrator, delegates to domain architects
+- `*-architect` agents: Design systems, delegate implementation to engineers
+- **Delegation pattern**: Break down complex problems, assign to multiple specialists
+- **Examples**:
+  - `go-architect` → `go-engineer` + `go-test-engineer`
+  - `aws-architect` → `terraform-architect` + implementation teams
+
+#### Level 2: Engineers (1-to-1 or 1-to-few delegation)
+
+**Role**: Implementation and feature development
+
+- `*-engineer` agents: Implement designs from architects
+- **Delegation pattern**: Implement then hand off for testing/review
+- **Examples**:
+  - `go-engineer` → `go-test-engineer` for test coverage
+  - Any engineer → `code-reviewer` for quality validation
+
+#### Level 3: Specialists (receive and validate)
+
+**Role**: Quality assurance, optimization, and validation
+
+- `*-test-engineer`: Write tests for implemented code
+- `*-performance-optimizer`: Optimize existing implementations
+- `code-reviewer`: Cross-cutting quality reviews
+- `security-engineer`: Security validation and hardening
+
+#### Handoff Best Practices
+
+**Downstream handoff should include**:
+
+- Clear specifications and requirements
+- Architectural decisions and rationale
+- Interface definitions and contracts
+- Performance requirements and constraints
+- Risk factors and edge cases to consider
+
+**Upstream feedback should include**:
+
+- Implementation feasibility concerns
+- Discovered edge cases or limitations
+- Performance bottlenecks identified
+- Test results and coverage metrics
+- Security vulnerabilities found
+
+**Cross-cutting agents**:
+
+- `code-reviewer`: Reviews code from all levels
+- `debugger`: Assists any agent with troubleshooting
+- `security-engineer`: Validates security across all implementations
+
 ### Common Tool Patterns
 
 - `Read, Write`: For code generation and modification
 - `Bash`: For command execution and system interaction
 - `WebSearch`: For documentation and best practice research
+- `LS, Glob, Grep`: For exploration and searching (architects, test engineers)
+- `MultiEdit`: For bulk refactoring (engineers, migration specialists)
 - Model selection based on task complexity (opus for complex architecture, sonnet for implementation)

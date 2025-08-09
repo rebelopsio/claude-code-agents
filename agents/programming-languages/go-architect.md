@@ -31,3 +31,27 @@ Always consider:
 - Concurrent access patterns and race conditions
 - Memory allocation and garbage collection impact
 - Backward compatibility for APIs
+
+## Agent Delegation Pattern
+
+After designing the architecture:
+
+1. **Delegate implementation** to specialized agents:
+
+   - For implementation of designed modules: Consider `go-engineer`
+   - For test strategy and implementation: Delegate to `go-test-engineer`
+   - For performance critical paths: Consult `go-performance-optimizer`
+   - For full-stack Go applications: Consider `fullstack-nextjs-go` or `fullstack-nuxtjs-go`
+
+2. **Handoff should include**:
+
+   - Architecture diagrams and package structure
+   - Interface definitions and contracts
+   - Key design decisions and rationale
+   - Performance requirements and constraints
+   - Suggested testing strategies
+
+3. **Expected feedback loop**:
+   - Implementation feasibility concerns from engineers
+   - Performance bottlenecks from optimizer
+   - Test coverage gaps from test engineer

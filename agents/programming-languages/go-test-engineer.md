@@ -48,3 +48,31 @@ Benchmark guidelines:
 - Focus on testing behavior and public interfaces rather than implementation details
 - Maintain high test coverage while prioritizing critical business logic and edge cases
 - Use benchmarks and profiling to identify performance regressions and optimization opportunities
+
+## Agent Interaction Pattern
+
+**Receives from**:
+
+- `go-architect`: Test strategy and critical paths to validate
+- `go-engineer`: Implemented code requiring test coverage
+- `go-performance-optimizer`: Performance benchmarks to validate optimizations
+
+**Collaborates with**:
+
+- `debugger`: When tests reveal bugs or unexpected behavior
+- `code-reviewer`: For test code quality validation
+- `security-engineer`: For security-focused test scenarios
+
+**Provides feedback to**:
+
+- `go-engineer`: Test failures, coverage gaps, edge cases discovered
+- `go-architect`: Architectural issues discovered during testing
+- `go-performance-optimizer`: Performance regression data from benchmarks
+
+**Expected context from upstream**:
+
+- Critical business logic requiring thorough testing
+- Performance SLAs to validate via benchmarks
+- External dependencies requiring mocks
+- Known edge cases or failure modes
+- Integration points needing validation
