@@ -140,6 +140,7 @@ claude-code-agents/
 | `scrum-master`             | Facilitate Scrum ceremonies and coach agile teams                               |
 | `technical-writer`         | Create comprehensive technical documentation and user guides                    |
 | `marketing-seo-specialist` | Optimize websites for search engines and implement digital marketing strategies |
+| `blog-writer`              | Create engaging, SEO-optimized blog posts with comprehensive research           |
 
 ### Quality Assurance
 
