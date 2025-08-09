@@ -32,8 +32,9 @@ log_agent_usage() {
 detect_delegation() {
     local result="$1"
 
-    # Check for delegation patterns in the result
-    if [[ "$result" == *"delegating to"* ]] || [[ "$result" == *"invoking"* ]]; then
+    # Check for delegation patterns in the result (case-insensitive)
+    local lower_result=$(echo "$result" | tr '[:upper:]' '[:lower:]')
+    if [[ "$lower_result" == *"delegating to"* ]] || [[ "$lower_result" == *"invoking"* ]]; then
         echo "🔄 Delegation detected in agent workflow"
 
         # Extract delegation chain if possible

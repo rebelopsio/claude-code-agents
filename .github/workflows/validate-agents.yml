@@ -201,3 +201,27 @@ jobs:
         run: |
           echo "🔍 Validating hooks..."
           python .github/scripts/validate_hooks.py
+
+      - name: Test hooks functionality
+        if: hashFiles('hooks/*.sh') != ''
+        run: |
+          echo "🧪 Testing hook functionality..."
+          python .github/scripts/test_hooks.py
+
+      - name: Validate slash commands
+        if: hashFiles('commands/*.md') != ''
+        run: |
+          echo "📝 Validating slash commands..."
+          # Check that all command files exist and are properly formatted
+          for file in commands/*.md; do
+            if [[ -f "$file" ]]; then
+              basename=$(basename "$file" .md)
+              # Commands should start with a description
+              if ! head -n 3 "$file" | grep -q "^#"; then
+                echo "❌ Command file $file missing header"
+                exit 1
+              fi
+              echo "✅ Validated $basename command"
+            fi
+          done
+          echo "✅ All slash commands validated"
