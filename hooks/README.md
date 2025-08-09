@@ -144,6 +144,33 @@ This directory contains hooks that enhance the Claude Code agent system by provi
 - Coverage reporting integration
 - Test creation suggestions
 
+### 10. Response Notifier (`response-notifier.sh`)
+
+**Type:** PostToolUse  
+**Purpose:** Desktop notifications with text-to-speech when Claude is waiting for user response
+
+- Sends desktop notifications for completed tasks
+- Text-to-speech announcements
+- Configurable notification triggers
+- Cross-platform support (macOS, Linux)
+- Tracks execution time to avoid spam
+
+**Features:**
+
+- Smart completion detection
+- Contextual notification messages
+- Configurable minimum execution time
+- Support for different notification sounds
+- Works with both successful and failed operations
+
+**Configuration:**
+
+```bash
+export CLAUDE_NOTIFIER_TTS=true           # Enable text-to-speech
+export CLAUDE_NOTIFIER_SOUND=true         # Enable notification sounds
+export CLAUDE_NOTIFIER_MIN_TIME=5         # Only notify for tasks >5s
+```
+
 ## Installation
 
 1. Make hooks executable:
@@ -163,6 +190,7 @@ claude-code config set hooks.postTool ./hooks/auto-debug-suggester.sh
 claude-code config set hooks.postTool ./hooks/web-resource-validator.sh
 claude-code config set hooks.postTool ./hooks/typescript-validator.sh
 claude-code config set hooks.postTool ./hooks/test-runner-validator.sh
+claude-code config set hooks.postTool ./hooks/response-notifier.sh
 claude-code config set hooks.sessionStart ./hooks/session-agent-context.sh
 claude-code config set hooks.subagentStop ./hooks/agent-context-bridge.sh
 ```
@@ -178,7 +206,8 @@ Or add to your settings JSON:
       "./hooks/auto-debug-suggester.sh",
       "./hooks/web-resource-validator.sh",
       "./hooks/typescript-validator.sh",
-      "./hooks/test-runner-validator.sh"
+      "./hooks/test-runner-validator.sh",
+      "./hooks/response-notifier.sh"
     ],
     "sessionStart": "./hooks/session-agent-context.sh",
     "subagentStop": "./hooks/agent-context-bridge.sh"

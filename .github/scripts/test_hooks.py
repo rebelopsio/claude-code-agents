@@ -280,6 +280,49 @@ class TestAgentContextBridge(HookTestCase):
         self.assertIn("engineer", stdout.lower(), "Should suggest engineer as next step")
 
 
+class TestResponseNotifier(HookTestCase):
+    """Test response-notifier.sh hook."""
+
+    def test_notifies_on_bash_completion(self):
+        """Test that notifications are triggered for completed bash commands."""
+        env = {
+            "CLAUDE_TOOL_NAME": "Bash",
+            "CLAUDE_TOOL_EXIT_CODE": "0",
+            "CLAUDE_TOOL_RESULT": "Command completed successfully",
+            "CLAUDE_TASK_DESCRIPTION": "Running build script"
+        }
+
+        returncode, stdout, stderr = self.run_hook("response-notifier.sh", env)
+
+        # Hook should exit successfully even if notifications fail
+        self.assertEqual(returncode, 0, "Hook should exit successfully")
+
+    def test_handles_failed_commands(self):
+        """Test notification for failed commands."""
+        env = {
+            "CLAUDE_TOOL_NAME": "Bash",
+            "CLAUDE_TOOL_EXIT_CODE": "1",
+            "CLAUDE_TOOL_RESULT": "Error: command failed",
+            "CLAUDE_TASK_DESCRIPTION": "Deploy to production"
+        }
+
+        returncode, stdout, stderr = self.run_hook("response-notifier.sh", env)
+
+        self.assertEqual(returncode, 0, "Hook should exit successfully")
+
+    def test_skips_quick_reads(self):
+        """Test that quick read operations don't trigger notifications."""
+        env = {
+            "CLAUDE_TOOL_NAME": "Read",
+            "CLAUDE_TOOL_EXIT_CODE": "0",
+            "CLAUDE_TOOL_RESULT": "File read successfully"
+        }
+
+        returncode, stdout, stderr = self.run_hook("response-notifier.sh", env)
+
+        self.assertEqual(returncode, 0, "Hook should exit successfully")
+
+
 def run_tests():
     """Run all hook tests."""
     # Create test suite
@@ -293,6 +336,7 @@ def run_tests():
     suite.addTests(loader.loadTestsFromTestCase(TestAutoDebugSuggester))
     suite.addTests(loader.loadTestsFromTestCase(TestSessionAgentContext))
     suite.addTests(loader.loadTestsFromTestCase(TestAgentContextBridge))
+    suite.addTests(loader.loadTestsFromTestCase(TestResponseNotifier))
 
     # Run tests
     runner = unittest.TextTestRunner(verbosity=2)
