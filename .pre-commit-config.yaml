@@ -54,3 +54,26 @@ repos:
         language: python
         files: ^agents/.*\.md$
         additional_dependencies: [pyyaml]
+
+      - id: validate-hooks
+        name: Validate hook scripts
+        entry: python .github/scripts/validate_hooks.py
+        language: python
+        files: ^hooks/.*\.sh$
+        pass_filenames: false
+
+      - id: check-hook-permissions
+        name: Check hook execute permissions
+        entry: bash
+        args:
+          - -c
+          - |
+            for file in "$@"; do
+              if [[ ! -x "$file" ]]; then
+                echo "❌ Hook not executable: $file"
+                echo "Run: chmod +x $file"
+                exit 1
+              fi
+            done
+        language: system
+        files: ^hooks/.*\.sh$

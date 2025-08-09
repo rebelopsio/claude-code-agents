@@ -195,3 +195,9 @@ jobs:
 
           print("✅ README.md is synchronized with agent files")
           '
+
+      - name: Validate hooks
+        if: hashFiles('hooks/*.sh') != ''
+        run: |
+          echo "🔍 Validating hooks..."
+          python .github/scripts/validate_hooks.py
