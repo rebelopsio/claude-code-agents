@@ -46,3 +46,18 @@ Always consider:
 - Accessibility testing requirements
 - Performance impact of test suites
 - CI/CD integration and parallel test execution
+
+## Agent Interaction Pattern
+
+**Collaborates with**:
+
+- `nextjs-debugger`: For Next.js-specific test failures
+- `javascript-debugger`: For general JavaScript/TypeScript issues
+- `react-component-engineer`: For component implementation testing
+- `nextjs-architect`: For architectural testing requirements
+- `code-reviewer`: For test code quality validation
+
+**Provides feedback to**:
+
+- React/Next.js implementation agents: Test failures and coverage gaps
+- `nextjs-debugger`: Complex SSR/hydration test failures

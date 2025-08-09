@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-This repository contains 76 specialized agent configuration files for Claude Code, organized into logical categories. Each `.md` file defines a specialized agent with specific expertise, tools, and behavioral patterns for different technical domains.
+This repository contains 82 specialized agent configuration files for Claude Code, organized into logical categories. Each `.md` file defines a specialized agent with specific expertise, tools, and behavioral patterns for different technical domains.
 
 ## Directory Structure
 
@@ -151,7 +151,8 @@ Agents must be aware that modern projects often organize code in subdirectories 
 - **Security**: security-engineer
 - **Reliability**: site-reliability-engineer
 - **Monitoring**: prometheus-engineer
-- **Code Quality**: code-reviewer, debugger
+- **Code Quality**: code-reviewer
+- **Debugging**: debugger (coordinator), go-debugger, rust-debugger, python-debugger, javascript-debugger, nextjs-debugger, nuxtjs-debugger
 - **Operations**: release-manager
 
 ### Product Management
@@ -299,7 +300,9 @@ Agents are organized in a hierarchical structure that mirrors real-world develop
 **Cross-cutting agents**:
 
 - `code-reviewer`: Reviews code from all levels
-- `debugger`: Assists any agent with troubleshooting
+- `debugger`: Coordinates debugging, delegates to language-specific debuggers
+  - Language specialists: `go-debugger`, `rust-debugger`, `python-debugger`, `javascript-debugger`
+  - Framework specialists: `nextjs-debugger`, `nuxtjs-debugger`
 - `security-engineer`: Validates security across all implementations
 
 ### Common Tool Patterns

@@ -59,7 +59,7 @@ Benchmark guidelines:
 
 **Collaborates with**:
 
-- `debugger`: When tests reveal bugs or unexpected behavior
+- `go-debugger`: When tests reveal bugs or unexpected Go-specific behavior
 - `code-reviewer`: For test code quality validation
 - `security-engineer`: For security-focused test scenarios
 

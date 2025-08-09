@@ -68,3 +68,16 @@ Always consider:
 - Cross-platform testing considerations
 - Integration with CI/CD and cargo workflows
 - Documentation and example quality in tests
+
+## Agent Interaction Pattern
+
+**Collaborates with**:
+
+- `rust-debugger`: When tests fail or reveal unexpected behavior
+- `rust-systems-engineer`: For implementation testing requirements
+- `code-reviewer`: For test code quality validation
+
+**Provides feedback to**:
+
+- `rust-systems-engineer`: Test failures and coverage gaps
+- `rust-cli-developer`, `rust-tui-developer`, `rust-web-wasm-engineer`: Component-specific test issues

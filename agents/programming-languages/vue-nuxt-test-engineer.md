@@ -66,3 +66,18 @@ Always consider:
 - Performance impact of test suites on build times
 - Accessibility testing with Vue components
 - TypeScript support in test environments
+
+## Agent Interaction Pattern
+
+**Collaborates with**:
+
+- `nuxtjs-debugger`: For Nuxt.js-specific test failures
+- `javascript-debugger`: For general JavaScript/TypeScript issues
+- `vue-developer`: For Vue component implementation testing
+- `nuxt-developer`: For Nuxt architectural testing requirements
+- `code-reviewer`: For test code quality validation
+
+**Provides feedback to**:
+
+- Vue/Nuxt implementation agents: Test failures and coverage gaps
+- `nuxtjs-debugger`: Complex SSR/hydration test failures

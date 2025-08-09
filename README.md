@@ -102,7 +102,13 @@ claude-code-agents/
 | `site-reliability-engineer` | Implement SRE practices, incident response, and service level management      |
 | `prometheus-engineer`       | Configure Prometheus monitoring and alerting                                  |
 | `code-reviewer`             | Expert code review for quality and security                                   |
-| `debugger`                  | Debug errors, test failures, and unexpected behavior                          |
+| `debugger`                  | General debugging coordinator that routes to specialized debuggers            |
+| `go-debugger`               | Debug Go applications with delve, pprof, race detector                        |
+| `rust-debugger`             | Debug Rust applications with LLDB/GDB, memory safety tools                    |
+| `python-debugger`           | Debug Python with pdb/ipdb, profiling, traceback analysis                     |
+| `javascript-debugger`       | Debug JS/TS with Chrome DevTools, Node inspector                              |
+| `nextjs-debugger`           | Debug Next.js SSR/SSG, hydration, App Router issues                           |
+| `nuxtjs-debugger`           | Debug Nuxt.js SSR/SSG, Vue 3, Nitro server issues                             |
 | `release-manager`           | Plan releases and coordinate software deployments                             |
 
 ### Design & Frontend

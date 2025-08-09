@@ -56,3 +56,16 @@ Always consider:
 - CI/CD pipeline integration
 - Test performance and execution time
 - Documentation and test maintenance
+
+## Agent Interaction Pattern
+
+**Collaborates with**:
+
+- `python-debugger`: When tests fail or reveal unexpected behavior
+- `python-automation-engineer`, `python-data-processor`: For implementation testing
+- `code-reviewer`: For test code quality validation
+
+**Provides feedback to**:
+
+- Python implementation agents: Test failures and coverage gaps
+- `python-debugger`: Complex test failures requiring deep debugging

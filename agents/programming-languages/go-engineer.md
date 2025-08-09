@@ -62,7 +62,7 @@ When invoked:
 - `go-test-engineer`: For comprehensive test implementation
 - `go-performance-optimizer`: For performance tuning critical paths
 - `code-reviewer`: For code quality validation
-- `debugger`: For troubleshooting complex issues
+- `go-debugger`: For troubleshooting complex Go-specific issues
 
 **Handoff includes**:
 
