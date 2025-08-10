@@ -25,17 +25,31 @@ Thank you for your interest in contributing to the Claude Code Agents repository
 - Bug fixes or corrections
 - Performance optimizations
 
+### Slash Commands
+
+- New commands in the `commands/` directory for common workflows
+- Must provide comprehensive output with actionable insights
+- Should integrate with existing agents when appropriate
+
+### Hooks
+
+- New hooks in the `hooks/` directory for Claude Code automation
+- Must be shell scripts with proper error handling
+- Should enhance workflow without disrupting normal operations
+
 ### Documentation
 
 - README updates
 - Agent documentation improvements
 - Usage examples and guides
+- Hook and command documentation
 
 ### Infrastructure
 
 - CI/CD improvements
 - Testing enhancements
 - Development tooling
+- Hook validation scripts
 
 ## 🎯 Agent Creation Guidelines
 
@@ -69,7 +83,7 @@ Agent content starts here...
 
 ### Directory Structure
 
-Place agents in the appropriate category:
+Place contributions in the appropriate directory:
 
 ```
 agents/
@@ -79,7 +93,19 @@ agents/
 ├── design-frontend/          # UI/UX, CSS frameworks
 ├── distributed-systems/      # Microservices, data systems
 ├── devops-monitoring/        # CI/CD, monitoring, security
+├── product-management/       # Product, business, content creation
+├── quality-assurance/        # Testing and QA
 └── data-analysis/           # Data science, analytics
+
+commands/                     # Slash commands for workflows
+├── blog-post.md             # Content creation
+├── gh-workflow-debug.md     # GitHub Actions debugging
+└── ... (17 total commands)
+
+hooks/                        # Claude Code hooks
+├── agent-selector.sh        # Agent suggestions
+├── response-notifier.sh     # Desktop notifications
+└── ... (10 total hooks)
 ```
 
 ## ✅ Validation Requirements
@@ -115,14 +141,18 @@ All contributions must pass our automated checks:
 
 ### Local Validation
 
-Run the validation script locally:
+Run the validation scripts locally:
 
 ```bash
 # Install Python dependencies
 pip install pyyaml jsonschema
 
-# Run validation
+# Validate agents
 python .github/scripts/validate_agents.py
+
+# Validate and test hooks
+python .github/scripts/validate_hooks.py
+python .github/scripts/test_hooks.py
 ```
 
 ### Manual Testing

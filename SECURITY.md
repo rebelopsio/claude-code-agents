@@ -38,11 +38,26 @@ If you discover a security vulnerability in this repository, please report it re
 - Agents should promote security best practices for their domains
 - Any code examples should follow secure coding practices
 
+### Hook Security
+
+- Hooks run with user permissions and must be carefully reviewed
+- The `dangerous-operation-validator.sh` hook helps prevent risky operations
+- All hooks include proper error handling and validation
+- Never execute untrusted commands or scripts through hooks
+- Hooks should validate all input and environment variables
+
+### Command Security
+
+- Slash commands should sanitize user input before processing
+- Commands should not expose sensitive information in output
+- Integration with external services should use secure authentication
+
 ### Repository Security
 
 - All contributions are reviewed before merging
 - Automated security scanning via GitHub Actions
 - Dependencies are regularly updated for security patches
+- Hook scripts are validated through automated testing
 
 ### User Responsibility
 
@@ -55,8 +70,10 @@ When using these agents:
 
 ## Security Features
 
-- **Automated validation** of agent content
+- **Automated validation** of agent content and hook scripts
 - **Pre-commit hooks** to prevent common security issues
+- **Hook validation** through automated testing suite
+- **Dangerous operation validation** to block risky commands
 - **Dependency scanning** for development dependencies
 - **Regular security updates** and patches
 

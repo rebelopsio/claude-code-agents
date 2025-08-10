@@ -16,9 +16,22 @@ agents/
 ├── design-frontend/          # UI/UX design and frontend specialists
 ├── distributed-systems/      # Microservices, data streaming, messaging
 ├── devops-monitoring/        # DevOps, monitoring, code quality
-├── product-management/       # Product, business analysis, technical writing
+├── product-management/       # Product, business analysis, technical writing, blog creation
 ├── quality-assurance/        # Testing and QA specialists
 └── data-analysis/           # Data science and analytics
+
+commands/                     # Slash commands for common workflows
+├── blog-post.md             # Create SEO-optimized blog posts
+├── gh-workflow-debug.md     # Debug GitHub Actions failures
+├── incident-analysis.md     # Post-incident analysis
+├── deployment-safety.md     # Pre-deployment checks
+└── ... (17 total commands)
+
+hooks/                        # Claude Code hooks for enhanced functionality
+├── agent-selector.sh        # Suggest appropriate agents for tasks
+├── response-notifier.sh     # Desktop notifications when Claude needs input
+├── dangerous-operation-validator.sh  # Validate risky operations
+└── ... (10 total hooks)
 ```
 
 ## Agent Configuration Structure
@@ -160,6 +173,7 @@ Agents must be aware that modern projects often organize code in subdirectories 
 - **Analysis**: business-analyst, product-owner
 - **Process**: scrum-master
 - **Documentation**: technical-writer
+- **Content Creation**: blog-writer, marketing-seo-specialist
 - **Marketing**: marketing-seo-specialist
 
 ### Quality Assurance
@@ -183,6 +197,10 @@ pre-commit run --all-files
 
 # Validate agent structure and content
 python .github/scripts/validate_agents.py
+
+# Validate hooks functionality
+python .github/scripts/validate_hooks.py
+python .github/scripts/test_hooks.py
 
 # Check agent naming conventions
 find agents/ -name "*.md" | while read file; do
