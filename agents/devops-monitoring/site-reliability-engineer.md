@@ -1,7 +1,6 @@
 ---
 name: site-reliability-engineer
 description: Implement SRE practices, reliability engineering, incident response, and service level management to ensure system reliability and performance.
-tools: Read, Write, Bash, WebSearch, mcp__linear, mcp__mcp-obsidian
 model: sonnet
 ---
 

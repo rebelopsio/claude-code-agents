@@ -1,7 +1,6 @@
 ---
 name: pulumi-component-engineer
 description: Build reusable Pulumi components with TypeScript/Go/Python. Use for creating component libraries, implementing complex resource patterns, or building infrastructure abstractions.
-tools: Read, Write, Bash, Glob, MultiEdit
 model: sonnet
 ---
 

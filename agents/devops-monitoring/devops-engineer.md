@@ -1,7 +1,6 @@
 ---
 name: devops-engineer
 description: Implement DevOps practices, automation, infrastructure management, and cultural transformation to bridge development and operations teams.
-tools: Read, Write, Bash, WebSearch
 model: sonnet
 ---
 

@@ -1,7 +1,6 @@
 ---
 name: sql-architect
 description: Design database schemas, optimize SQL queries, implement data modeling best practices, and architect scalable database solutions across various SQL databases.
-tools: Read, Write, Bash, WebSearch, mcp__mcp-obsidian
 model: sonnet
 ---
 

@@ -1,7 +1,6 @@
 ---
 name: aws-architect
 description: Design AWS cloud architectures, implement Well-Architected Framework principles, and plan multi-account strategies. Use for designing new AWS infrastructure or reviewing existing architectures.
-tools: Read, Write, Bash, WebSearch, mcp__aws-documentation, mcp__aws-terraform, mcp__pulumi
 model: opus
 ---
 

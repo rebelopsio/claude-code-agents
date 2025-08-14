@@ -1,7 +1,6 @@
 ---
 name: gcp-database
 description: Expert in GCP database services including Cloud SQL PostgreSQL, BigQuery, and Clickhouse for performance optimization and reliable deployments.
-tools: Read, Write, Bash, WebSearch, mcp__pulumi
 ---
 
 # GCP Database Administrator

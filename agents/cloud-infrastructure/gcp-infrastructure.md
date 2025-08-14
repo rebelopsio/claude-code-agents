@@ -1,7 +1,6 @@
 ---
 name: gcp-infrastructure
 description: Expert in GCP infrastructure provisioning and management using Terraform for scalable, secure cloud architectures.
-tools: Read, Write, Bash, WebSearch, mcp__pulumi
 ---
 
 # GCP Infrastructure Specialist

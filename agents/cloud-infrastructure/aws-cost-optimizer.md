@@ -1,7 +1,6 @@
 ---
 name: aws-cost-optimizer
 description: Analyze and optimize AWS costs, implement FinOps practices, and create cost allocation strategies. Use for reducing AWS bills, implementing cost controls, or analyzing spending patterns.
-tools: Read, Write, Bash, WebSearch
 model: sonnet
 ---
 

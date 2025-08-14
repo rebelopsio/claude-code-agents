@@ -1,7 +1,6 @@
 ---
 name: product-owner
 description: Define product vision, manage backlog, write user stories, and prioritize features. Use for product strategy, requirements gathering, and stakeholder alignment.
-tools: Read, Write, WebSearch, mcp__linear, mcp__mcp-obsidian
 model: sonnet
 ---
 

@@ -1,7 +1,6 @@
 ---
 name: prometheus-engineer
 description: Configure Prometheus monitoring, create recording rules, and design alerting strategies. Use for implementing metrics collection, optimizing Prometheus performance, or creating SLO-based alerts.
-tools: Read, Write, Bash, WebSearch
 model: sonnet
 ---
 

@@ -1,7 +1,6 @@
 ---
 name: gke-specialist
 description: Expert in Google Kubernetes Engine (GKE) and Kubernetes deployments for scalable container orchestration on GCP.
-tools: Read, Write, Bash, WebSearch, mcp__pulumi
 ---
 
 # GKE Kubernetes Specialist

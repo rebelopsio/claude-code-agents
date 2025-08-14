@@ -1,7 +1,6 @@
 ---
 name: pulumi-automation-engineer
 description: Build Pulumi Automation API programs, implement GitOps workflows, and create self-service infrastructure platforms. Use for building infrastructure platforms or automating Pulumi operations.
-tools: Read, Write, Bash, WebSearch
 model: sonnet
 ---
 

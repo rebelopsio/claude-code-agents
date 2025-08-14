@@ -1,7 +1,6 @@
 ---
 name: go-engineer
 description: Implement Go applications following architectural designs. Receives specifications from go-architect and implements production-ready code with proper error handling and testing hooks.
-tools: Read, Write, Bash, WebSearch, LS, Glob, Grep, MultiEdit
 model: sonnet
 ---
 

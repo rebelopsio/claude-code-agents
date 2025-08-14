@@ -1,0 +1,76 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/agent-selector.sh"
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/dangerous-operation-validator.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/agent-hierarchy-tracker.sh"
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/auto-debug-suggester.sh"
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/response-notifier.sh"
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/pushover-notifier.sh"
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/web-resource-validator.sh"
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/typescript-validator.sh"
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/test-runner-validator.sh"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/session-agent-context.sh"
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/agent-context-bridge.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

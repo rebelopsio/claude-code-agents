@@ -156,6 +156,22 @@ claude-code-agents/
 
 ## Installation & Usage
 
+### Quick Setup (Agents + Hooks)
+
+```bash
+# Clone the repository
+git clone https://github.com/rebelopsio/claude-code-agents.git
+cd claude-code-agents
+
+# Run the setup script for hooks (optional but recommended)
+./setup-hooks.sh
+
+# Follow the prompts to configure hooks for notifications and enhanced functionality
+
+# For configurations with API keys (e.g., Pushover notifications):
+# See SECURE_CONFIGURATION.md for safe credential management
+```
+
 ### Installing Agents
 
 To use these agents with Claude Code, you need to place them in one of the supported locations as described in the [official sub-agents documentation](https://docs.anthropic.com/en/docs/claude-code/sub-agents):

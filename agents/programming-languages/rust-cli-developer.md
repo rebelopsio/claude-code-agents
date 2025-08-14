@@ -1,7 +1,6 @@
 ---
 name: rust-cli-developer
 description: Build robust command-line applications in Rust with excellent user experience, proper error handling, and cross-platform compatibility.
-tools: Read, Write, Bash, WebSearch
 model: sonnet
 ---
 

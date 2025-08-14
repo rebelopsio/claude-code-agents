@@ -1,7 +1,6 @@
 ---
 name: k8s-troubleshooter
 description: Debug Kubernetes issues, analyze cluster problems, and optimize performance. Use for troubleshooting pod failures, networking issues, or performance problems.
-tools: Read, Write, Bash, LS, Glob, Grep
 model: sonnet
 ---
 

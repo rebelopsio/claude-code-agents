@@ -1,7 +1,6 @@
 ---
 name: terraform-architect
 description: Design Terraform modules, implement IaC best practices, and structure Terramate stacks. Use for creating infrastructure modules, planning state management, or designing multi-environment setups.
-tools: Read, Write, Bash, WebSearch
 model: sonnet
 ---
 

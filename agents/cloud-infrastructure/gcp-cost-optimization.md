@@ -1,7 +1,6 @@
 ---
 name: gcp-cost-optimization
 description: Expert in GCP cost analysis, optimization, and financial governance for maximum cloud investment efficiency.
-tools: Read, Write, Bash, WebSearch, mcp__pulumi
 ---
 
 # GCP Cost Optimization Expert

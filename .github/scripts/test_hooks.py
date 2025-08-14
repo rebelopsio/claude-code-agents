@@ -323,6 +323,52 @@ class TestResponseNotifier(HookTestCase):
         self.assertEqual(returncode, 0, "Hook should exit successfully")
 
 
+class TestPushoverNotifier(HookTestCase):
+    """Test pushover-notifier.sh hook."""
+
+    def test_notifies_on_bash_completion(self):
+        """Test that Pushover notifications are triggered for completed bash commands."""
+        env = {
+            "CLAUDE_TOOL_NAME": "Bash",
+            "CLAUDE_TOOL_EXIT_CODE": "0",
+            "CLAUDE_TOOL_RESULT": "Command completed successfully",
+            "CLAUDE_TASK_DESCRIPTION": "Running build script",
+            "PUSHOVER_ENABLED": "true"
+        }
+
+        returncode, stdout, stderr = self.run_hook("pushover-notifier.sh", env)
+
+        # Hook should exit successfully even if not configured
+        self.assertEqual(returncode, 0, "Hook should exit successfully")
+
+    def test_handles_priority_escalation(self):
+        """Test priority escalation for critical errors."""
+        env = {
+            "CLAUDE_TOOL_NAME": "Bash",
+            "CLAUDE_TOOL_EXIT_CODE": "1",
+            "CLAUDE_TOOL_RESULT": "CRITICAL: Database connection lost",
+            "CLAUDE_TASK_DESCRIPTION": "Database backup",
+            "PUSHOVER_ENABLED": "true"
+        }
+
+        returncode, stdout, stderr = self.run_hook("pushover-notifier.sh", env)
+
+        self.assertEqual(returncode, 0, "Hook should exit successfully")
+
+    def test_skips_when_disabled(self):
+        """Test that notifications are skipped when disabled."""
+        env = {
+            "CLAUDE_TOOL_NAME": "Bash",
+            "CLAUDE_TOOL_EXIT_CODE": "0",
+            "CLAUDE_TOOL_RESULT": "Success",
+            "PUSHOVER_ENABLED": "false"
+        }
+
+        returncode, stdout, stderr = self.run_hook("pushover-notifier.sh", env)
+
+        self.assertEqual(returncode, 0, "Hook should exit successfully")
+
+
 def run_tests():
     """Run all hook tests."""
     # Create test suite
@@ -337,6 +383,7 @@ def run_tests():
     suite.addTests(loader.loadTestsFromTestCase(TestSessionAgentContext))
     suite.addTests(loader.loadTestsFromTestCase(TestAgentContextBridge))
     suite.addTests(loader.loadTestsFromTestCase(TestResponseNotifier))
+    suite.addTests(loader.loadTestsFromTestCase(TestPushoverNotifier))
 
     # Run tests
     runner = unittest.TextTestRunner(verbosity=2)

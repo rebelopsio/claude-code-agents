@@ -1,7 +1,6 @@
 ---
 name: vue-developer
 description: Build modern Vue.js applications with Composition API, TypeScript, and reactive patterns. Focus on component architecture and performance optimization.
-tools: Read, Write, Bash, WebSearch
 model: sonnet
 ---
 

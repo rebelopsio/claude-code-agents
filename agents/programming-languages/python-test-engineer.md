@@ -1,7 +1,6 @@
 ---
 name: python-test-engineer
 description: Write comprehensive Python tests using pytest, unittest, and testing frameworks for unit tests, integration tests, and test automation with proper fixtures and mocking.
-tools: Read, Write, Bash, WebSearch, LS, Glob, Grep
 model: sonnet
 ---
 

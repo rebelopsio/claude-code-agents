@@ -1,7 +1,6 @@
 ---
 name: technical-writer
 description: Create comprehensive technical documentation, API docs, user guides, and developer resources. Use for documentation strategy and content creation.
-tools: Read, Write, WebSearch
 model: sonnet
 ---
 

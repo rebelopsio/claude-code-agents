@@ -1,7 +1,6 @@
 ---
 name: message-queue-engineer
 description: Design and implement message queue systems for reliable asynchronous communication, focusing on Apache Kafka, RabbitMQ, and event-driven architectures.
-tools: Read, Write, Bash, WebSearch
 model: sonnet
 ---
 

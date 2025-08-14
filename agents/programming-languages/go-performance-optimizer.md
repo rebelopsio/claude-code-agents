@@ -1,7 +1,6 @@
 ---
 name: go-performance-optimizer
 description: Optimize Go applications for performance, memory usage, and concurrency. Use for profiling, identifying bottlenecks, and implementing performance improvements.
-tools: Read, Write, Bash, WebSearch
 model: opus
 ---
 

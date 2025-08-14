@@ -1,7 +1,6 @@
 ---
 name: scrum-master
 description: Facilitate Scrum ceremonies, remove impediments, coach teams, and ensure agile best practices. Use for agile process improvement and team facilitation.
-tools: Read, Write, WebSearch
 model: sonnet
 ---
 

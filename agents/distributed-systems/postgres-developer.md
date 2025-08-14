@@ -1,7 +1,6 @@
 ---
 name: postgres-developer
 description: Develop PostgreSQL applications, implement advanced features, optimize performance, and leverage PostgreSQL-specific capabilities for robust database solutions.
-tools: Read, Write, Bash, WebSearch, mcp__mcp-obsidian
 model: sonnet
 ---
 

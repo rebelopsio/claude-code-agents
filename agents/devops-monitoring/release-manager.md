@@ -1,7 +1,6 @@
 ---
 name: release-manager
 description: Plan releases, coordinate deployments, manage release pipelines, and ensure smooth software delivery. Use for release planning and deployment coordination.
-tools: Read, Write, Bash, WebSearch
 model: sonnet
 ---
 

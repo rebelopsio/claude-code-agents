@@ -149,19 +149,52 @@ This directory contains hooks that enhance the Claude Code agent system by provi
 **Type:** PostToolUse  
 **Purpose:** Desktop notifications with text-to-speech when Claude is waiting for user response
 
-- Sends desktop notifications for completed tasks
-- Text-to-speech announcements
-- Configurable notification triggers
-- Cross-platform support (macOS, Linux)
-- Tracks execution time to avoid spam
+### 11. Pushover Notifier (`pushover-notifier.sh`)
+
+**Type:** PostToolUse  
+**Purpose:** Push notifications via Pushover when Claude is waiting for user response
+
+- Sends push notifications to mobile devices via Pushover
+- Priority-based notifications (silent to emergency)
+- HTML-formatted messages with task details
+- Configurable sounds and priorities
+- Tracks execution time for smart notifications
+- Requires Pushover account and API credentials
 
 **Features:**
 
 - Smart completion detection
-- Contextual notification messages
+- Contextual notification messages with duration
+- Priority escalation for errors and critical failures
 - Configurable minimum execution time
-- Support for different notification sounds
-- Works with both successful and failed operations
+- Support for custom notification sounds
+- HTML formatting for rich notifications
+
+**Configuration:**
+
+See `hooks/settings.pushover.example.json` for a complete example. Copy it to `~/.claude/settings.json` and replace the PLACEHOLDER values with your actual credentials:
+
+```bash
+cp hooks/settings.pushover.example.json ~/.claude/settings.json
+nano ~/.claude/settings.json  # Replace PLACEHOLDER values
+```
+
+**Alternative: Environment Variables**
+
+You can also use environment variables (see `.env.example`):
+
+```bash
+cp .env.example ~/.claude/.env
+nano ~/.claude/.env  # Add your credentials
+echo 'source ~/.claude/.env' >> ~/.bashrc  # or ~/.zshrc
+```
+
+**Setup:**
+
+1. Create a Pushover account at [pushover.net](https://pushover.net)
+2. Get your User Key from the dashboard
+3. Create an application to get an API Token
+4. Add credentials to your Claude Code settings
 
 **Configuration:**
 
@@ -173,44 +206,156 @@ export CLAUDE_NOTIFIER_MIN_TIME=5         # Only notify for tasks >5s
 
 ## Installation
 
+⚠️ **IMPORTANT**: For configurations with API keys or sensitive data, see [SECURE_CONFIGURATION.md](../SECURE_CONFIGURATION.md) to avoid accidentally committing credentials.
+
 1. Make hooks executable:
 
 ```bash
 chmod +x hooks/*.sh
 ```
 
-2. Configure Claude Code to use hooks:
+2. Configure Claude Code to use hooks in your settings file:
+
+### Settings File Locations
+
+Choose one of these locations for your settings:
+
+- **User settings**: `~/.claude/settings.json` (applies to all projects)
+- **Project settings**: `.claude/settings.json` (shared with team)
+- **Local project settings**: `.claude/settings.local.json` (personal, not committed)
+
+### Configuration Examples
+
+We provide several example configurations in the `hooks/` directory:
+
+- `settings.example.json` - Full configuration with all hooks
+- `settings.minimal.example.json` - Minimal setup for basic notifications
+- `settings.pushover.example.json` - Pushover notifications with placeholders
+
+Copy the one you need to `~/.claude/settings.json`:
 
 ```bash
-# Add to your Claude Code settings
-claude-code config set hooks.preTool ./hooks/agent-selector.sh
-claude-code config set hooks.preTool ./hooks/dangerous-operation-validator.sh
-claude-code config set hooks.postTool ./hooks/agent-hierarchy-tracker.sh
-claude-code config set hooks.postTool ./hooks/auto-debug-suggester.sh
-claude-code config set hooks.postTool ./hooks/web-resource-validator.sh
-claude-code config set hooks.postTool ./hooks/typescript-validator.sh
-claude-code config set hooks.postTool ./hooks/test-runner-validator.sh
-claude-code config set hooks.postTool ./hooks/response-notifier.sh
-claude-code config set hooks.sessionStart ./hooks/session-agent-context.sh
-claude-code config set hooks.subagentStop ./hooks/agent-context-bridge.sh
+# Choose one:
+cp hooks/settings.example.json ~/.claude/settings.json
+cp hooks/settings.minimal.example.json ~/.claude/settings.json
+cp hooks/settings.pushover.example.json ~/.claude/settings.json
 ```
 
-Or add to your settings JSON:
+If using linked hooks at `~/.claude/hooks`, the paths in the examples will work as-is.
+Otherwise, update the paths to point to your hooks location.
+
+### Example Configuration Structure
 
 ```json
 {
   "hooks": {
-    "preToolUse": ["./hooks/agent-selector.sh", "./hooks/dangerous-operation-validator.sh"],
-    "postToolUse": [
-      "./hooks/agent-hierarchy-tracker.sh",
-      "./hooks/auto-debug-suggester.sh",
-      "./hooks/web-resource-validator.sh",
-      "./hooks/typescript-validator.sh",
-      "./hooks/test-runner-validator.sh",
-      "./hooks/response-notifier.sh"
+    "PreToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/agent-selector.sh"
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/dangerous-operation-validator.sh"
+          }
+        ]
+      }
     ],
-    "sessionStart": "./hooks/session-agent-context.sh",
-    "subagentStop": "./hooks/agent-context-bridge.sh"
+    "PostToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/agent-hierarchy-tracker.sh"
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/auto-debug-suggester.sh"
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/response-notifier.sh"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/session-agent-context.sh"
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/agent-context-bridge.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+### Minimal Configuration (Just Notifications)
+
+If you only want desktop notifications when Claude needs input, use `settings.minimal.example.json`:
+
+```bash
+cp hooks/settings.minimal.example.json ~/.claude/settings.json
+```
+
+Or create manually:
+
+```json
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/response-notifier.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+### Using Project-Relative Paths
+
+If you're using project-level settings, you can use the `$CLAUDE_PROJECT_DIR` variable:
+
+```json
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/hooks/response-notifier.sh"
+          }
+        ]
+      }
+    ]
   }
 }
 ```

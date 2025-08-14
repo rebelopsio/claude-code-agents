@@ -1,7 +1,6 @@
 ---
 name: rust-tauri-developer
 description: Build cross-platform desktop applications using Tauri, combining Rust backends with web frontend technologies for native performance and modern UIs.
-tools: Read, Write, Bash, WebSearch
 model: sonnet
 ---
 

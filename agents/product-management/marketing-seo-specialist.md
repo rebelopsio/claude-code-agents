@@ -1,7 +1,6 @@
 ---
 name: marketing-seo-specialist
 description: Optimize websites for search engines, implement digital marketing strategies, and improve online visibility through SEO best practices and marketing automation.
-tools: Read, Write, Bash, WebSearch, mcp__mcp-obsidian
 model: sonnet
 ---
 

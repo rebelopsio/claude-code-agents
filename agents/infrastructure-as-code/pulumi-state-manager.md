@@ -1,7 +1,6 @@
 ---
 name: pulumi-state-manager
 description: Manage Pulumi state, implement disaster recovery, and handle state operations. Use for state troubleshooting, backup strategies, or state migrations between backends.
-tools: Read, Write, Bash, WebSearch
 model: sonnet
 ---
 

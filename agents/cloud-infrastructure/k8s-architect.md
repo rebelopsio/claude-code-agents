@@ -1,7 +1,6 @@
 ---
 name: k8s-architect
 description: Design Kubernetes architectures, implement multi-tenancy, and plan cluster strategies. Use for designing new Kubernetes deployments or improving existing cluster architectures.
-tools: Read, Write, Bash, WebSearch
 model: opus
 ---
 

@@ -1,7 +1,6 @@
 ---
 name: react-component-engineer
 description: Build reusable React components with TypeScript, proper patterns, and testing. Use for creating component libraries, implementing complex UI interactions, or refactoring components.
-tools: Read, Write, Bash, mcp__Context7, Glob, MultiEdit
 model: sonnet
 ---
 

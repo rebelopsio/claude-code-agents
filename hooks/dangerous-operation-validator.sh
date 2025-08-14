@@ -7,6 +7,19 @@
 TOOL_NAME="$CLAUDE_TOOL_NAME"
 COMMAND="$1"
 
+# Set non-blocking mode to prevent hanging
+exec < /dev/null
+
+# Exit immediately if no tool name provided
+if [[ -z "$TOOL_NAME" ]]; then
+    exit 0
+fi
+
+# Only process Bash, Task, Write, and MultiEdit tools
+if [[ "$TOOL_NAME" != "Bash" ]] && [[ "$TOOL_NAME" != "Task" ]] && [[ "$TOOL_NAME" != "Write" ]] && [[ "$TOOL_NAME" != "MultiEdit" ]]; then
+    exit 0
+fi
+
 # Function to check for dangerous patterns
 check_dangerous_patterns() {
     local cmd="$1"

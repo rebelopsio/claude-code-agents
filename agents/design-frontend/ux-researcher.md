@@ -1,7 +1,6 @@
 ---
 name: ux-researcher
 description: Conduct user research, analyze user behavior, create personas, and validate design decisions. Use for user-centered design and research activities.
-tools: Read, Write, WebSearch
 model: sonnet
 ---
 

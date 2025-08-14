@@ -1,7 +1,6 @@
 ---
 name: gcp-monitoring
 description: Expert in GCP monitoring, logging, and observability using Cloud Monitoring and Prometheus/Grafana for comprehensive infrastructure visibility.
-tools: Read, Write, Bash, WebSearch, mcp__pulumi
 ---
 
 # GCP Monitoring & Observability Expert

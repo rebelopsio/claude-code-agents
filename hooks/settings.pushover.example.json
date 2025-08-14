@@ -1,0 +1,25 @@
+{
+  "_comment": "Copy this to ~/.claude/settings.json and replace PLACEHOLDER values with your actual credentials",
+  "env": {
+    "PUSHOVER_USER_KEY": "REPLACE_WITH_YOUR_USER_KEY",
+    "PUSHOVER_APP_TOKEN": "REPLACE_WITH_YOUR_APP_TOKEN",
+    "PUSHOVER_ENABLED": "true",
+    "PUSHOVER_MIN_TIME": "5",
+    "PUSHOVER_PRIORITY": "0",
+    "PUSHOVER_SOUND": ""
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/pushover-notifier.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

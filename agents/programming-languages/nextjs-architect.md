@@ -1,7 +1,6 @@
 ---
 name: nextjs-architect
 description: Design NextJS applications with App Router, RSC, and optimal architecture patterns. Use for creating new NextJS projects, implementing routing strategies, or optimizing performance.
-tools: Read, Write, Bash, WebSearch
 model: sonnet
 ---
 

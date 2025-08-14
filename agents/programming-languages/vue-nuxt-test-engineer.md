@@ -1,7 +1,6 @@
 ---
 name: vue-nuxt-test-engineer
 description: Write comprehensive tests for Vue.js and Nuxt applications using Vitest, Vue Test Utils, and Playwright for component testing, composable testing, and e2e testing.
-tools: Read, Write, Bash, WebSearch, LS, Glob, Grep
 model: sonnet
 ---
 

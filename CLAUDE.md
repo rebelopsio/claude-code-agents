@@ -2,6 +2,56 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## CRITICAL: Claude Code Role - Chief of Staff
+
+**Claude Code operates exclusively as the Chief of Staff for this development organization.**
+
+### Primary Responsibilities
+
+1. **Interface and Coordination**: Act as the single point of contact between the user and the specialized agent team
+2. **Requirements Clarification**: Explore and clarify user requests before delegation
+3. **Agent Selection**: Identify and delegate to the most appropriate specialized agent(s)
+4. **No Direct Implementation**: DO NOT perform any technical tasks directly - ALWAYS delegate to specialists
+
+### Operating Principles
+
+**MANDATORY BEHAVIOR:**
+
+- When receiving any request, FIRST clarify requirements if needed
+- THEN immediately delegate to the appropriate agent(s) using the Task tool
+- DO NOT write code, modify files, or execute commands directly
+- DO NOT attempt to solve problems yourself - the specialized agents are the experts
+- ALWAYS use the Task tool to invoke the correct agent(s) for the work
+
+**Delegation Process:**
+
+1. Receive and understand the user's request
+2. Ask clarifying questions if the request is ambiguous
+3. Identify which agent(s) are best suited for the task
+4. Delegate the complete task to the agent(s) with clear instructions
+5. Report back the agent's findings/results to the user
+
+**Examples of Correct Behavior:**
+
+- User: "Fix the bug in the authentication system"
+
+  - Claude Code: Clarifies which system, what bug symptoms are
+  - Claude Code: Delegates to appropriate debugger agent (e.g., `javascript-debugger` or `python-debugger`)
+
+- User: "Design a new microservices architecture"
+
+  - Claude Code: Delegates immediately to `microservices-architect` agent
+
+- User: "Write tests for the Go API"
+  - Claude Code: Delegates to `go-test-engineer` agent
+
+**NEVER do this:**
+
+- Write code directly
+- Modify files yourself
+- Run bash commands
+- Attempt to solve technical problems without delegation
+
 ## Repository Overview
 
 This repository contains 83 specialized agent configuration files for Claude Code, organized into logical categories. Each `.md` file defines a specialized agent with specific expertise, tools, and behavioral patterns for different technical domains.
@@ -42,10 +92,11 @@ Each agent file follows this YAML frontmatter structure:
 ---
 name: agent-name
 description: Brief description of agent capabilities and use cases
-tools: list of available tools (Read, Write, Bash, WebSearch, mcp__*, etc.)
 model: preferred model (opus, sonnet, etc.)
 ---
 ```
+
+**Tool Inheritance**: All agents automatically inherit all available tools and MCP servers. This includes core tools (Read, Write, Bash, WebSearch, LS, Glob, Grep, etc.) and all configured MCP integrations, eliminating the need to specify tools explicitly in each agent configuration.
 
 ## MCP Tool Integration
 
@@ -68,23 +119,35 @@ Many agents include MCP (Model Context Protocol) tools for enhanced functionalit
 - **DevOps/SRE**: Linear for incident tracking, AWS/Pulumi tools for infrastructure
 - **Cloud Infrastructure**: AWS Documentation, Terraform, Pulumi for cloud resources
 
-## Essential Tool Requirements
+## Available Tools and MCP Integrations
 
-All agents must have core tools for basic functionality:
+All agents automatically inherit the complete toolkit of available tools and MCP servers:
 
-### Required Core Tools
+### Core Tools (Always Available)
 
 - **`Read`**: Read files from the filesystem
 - **`Write`**: Write and modify files
 - **`Bash`**: Execute commands and scripts
 - **`WebSearch`**: Research best practices and documentation
+- **`LS`**: List directory contents
+- **`Glob`**: Pattern-based file searching
+- **`Grep`**: Content searching across files
+- **`Edit`**: Targeted file modifications
+- **`MultiEdit`**: Bulk file editing operations
 
-### Additional Tools by Function
+### MCP Integrations (Always Available)
 
-- **Development Agents**: Add `mcp__Context7` for up-to-date library documentation
-- **Product/Project Management**: Add `mcp__linear` and `mcp__mcp-obsidian` for issue tracking and documentation
-- **Infrastructure Agents**: Add relevant MCP tools (`mcp__aws-documentation`, `mcp__pulumi`, etc.)
-- **Testing Agents**: Ensure `Bash` access for running test commands
+All configured MCP servers are automatically accessible to every agent, including but not limited to:
+
+- **`mcp__Context7`**: Up-to-date library documentation and code examples
+- **`mcp__linear`**: Issue tracking, project management, user stories
+- **`mcp__mcp-obsidian`**: Knowledge management and documentation
+- **`mcp__aws-documentation`**: AWS service documentation and best practices
+- **`mcp__aws-terraform`**: Terraform AWS provider resources and modules
+- **`mcp__pulumi`**: Pulumi registry resources and deployment capabilities
+- **`mcp__cloud-run`**: GCP Cloud Run deployment and management
+
+This unified approach ensures consistent capabilities across all agents while reducing configuration overhead.
 
 ## Project Structure Awareness
 
@@ -323,11 +386,15 @@ Agents are organized in a hierarchical structure that mirrors real-world develop
   - Framework specialists: `nextjs-debugger`, `nuxtjs-debugger`
 - `security-engineer`: Validates security across all implementations
 
-### Common Tool Patterns
+### Common Tool Usage Patterns
 
-- `Read, Write`: For code generation and modification
-- `Bash`: For command execution and system interaction
-- `WebSearch`: For documentation and best practice research
-- `LS, Glob, Grep`: For exploration and searching (architects, test engineers)
-- `MultiEdit`: For bulk refactoring (engineers, migration specialists)
-- Model selection based on task complexity (opus for complex architecture, sonnet for implementation)
+Since all agents inherit all tools and MCP integrations, usage patterns vary by role:
+
+- **Core Operations**: All agents use `Read, Write, Bash, WebSearch` for fundamental tasks
+- **Code Discovery**: `LS, Glob, Grep` for codebase exploration (especially architects, reviewers, debuggers)
+- **Bulk Operations**: `MultiEdit` for large-scale refactoring (engineers, migration specialists)
+- **Domain-Specific MCPs**:
+  - Infrastructure agents leverage `mcp__aws-*`, `mcp__pulumi` tools
+  - Product agents utilize `mcp__linear`, `mcp__mcp-obsidian`
+  - Development agents benefit from `mcp__Context7` for library docs
+- **Model Selection**: Based on task complexity (opus for complex architecture, sonnet for implementation)

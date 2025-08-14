@@ -1,7 +1,6 @@
 ---
 name: rust-web-wasm-engineer
 description: Build high-performance web applications using Rust and WebAssembly, focusing on compute-intensive tasks, web frameworks, and browser integration.
-tools: Read, Write, Bash, WebSearch
 model: sonnet
 ---
 

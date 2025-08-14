@@ -4,6 +4,14 @@
 # This hook runs before the Task tool is invoked
 # It analyzes the task description and suggests the most appropriate agent
 
+# Set non-blocking mode to prevent hanging
+exec < /dev/null
+
+# Exit immediately if not a Task tool
+if [[ "$CLAUDE_TOOL_NAME" != "Task" ]]; then
+    exit 0
+fi
+
 TASK_PROMPT="$1"
 
 # Function to suggest agent based on keywords
@@ -44,10 +52,8 @@ suggest_agent() {
     fi
 }
 
-# Check if this is a Task tool invocation
-if [[ "$CLAUDE_TOOL_NAME" == "Task" ]]; then
-    suggest_agent "$TASK_PROMPT"
-fi
+# Run the suggestion function
+suggest_agent "$TASK_PROMPT"
 
 # Always allow the tool to proceed
 exit 0

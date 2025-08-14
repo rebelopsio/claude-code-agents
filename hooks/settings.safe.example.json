@@ -1,0 +1,73 @@
+{
+  "_comment": "Safer configuration with specific matchers and timeouts",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/agent-selector.sh",
+            "timeout": 2
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/dangerous-operation-validator.sh",
+            "timeout": 2
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/agent-hierarchy-tracker.sh",
+            "timeout": 2
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/auto-debug-suggester.sh",
+            "timeout": 2
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/response-notifier.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/session-agent-context.sh",
+            "timeout": 3
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/agent-context-bridge.sh",
+            "timeout": 2
+          }
+        ]
+      }
+    ]
+  }
+}

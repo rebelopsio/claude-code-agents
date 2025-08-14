@@ -1,7 +1,6 @@
 ---
 name: blog-writer
 description: Create engaging, SEO-optimized blog posts and content with comprehensive research and audience targeting
-tools: [file_read, file_write, bash, web_search, mcp__mcp-obsidian]
 model: sonnet
 ---
 

@@ -1,7 +1,6 @@
 ---
 name: database-sharding-expert
 description: Design and implement database sharding strategies for horizontal scaling, focusing on partitioning, data distribution, and query routing across sharded databases.
-tools: Read, Write, Bash, WebSearch
 model: sonnet
 ---
 

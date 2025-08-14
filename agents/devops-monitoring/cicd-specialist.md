@@ -1,7 +1,6 @@
 ---
 name: cicd-specialist
 description: Design and implement CI/CD pipelines using GitHub Actions, GitLab CI, Jenkins, and other automation platforms for efficient software delivery.
-tools: Read, Write, Bash, WebSearch, LS, Glob
 model: sonnet
 ---
 

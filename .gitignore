@@ -42,7 +42,6 @@ coverage.xml
 cover/
 
 # Virtual environments
-.env
 .venv
 env/
 venv/
@@ -89,3 +88,26 @@ yarn-error.log*
 
 # Pre-commit
 .pre-commit-config.yaml.backup
+
+# Claude Code settings with sensitive data
+settings.json
+settings.*.json
+!settings.example.json
+!settings.*.example.json
+.claude/settings.json
+.claude/settings.*.json
+hooks/settings.json
+hooks/settings.*.json
+!hooks/settings.example.json
+!hooks/settings.*.example.json
+
+# API keys and credentials
+*.key
+*.token
+*-credentials.json
+*-secrets.json
+.env
+.env.*
+!.env.example
+.env.local
+.env.*.local
